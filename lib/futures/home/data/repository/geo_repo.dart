@@ -21,7 +21,8 @@ class GeoRepo {
           }
       );
 
-      return GeoModel.fromJson(response.data);
+      List data = response.data; //Get data as a list [{}]
+      return GeoModel.fromJson(data.first); //parse json from list [index: 0]
 
     } catch (e) {
       print("Error in code: Dio $e");
