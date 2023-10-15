@@ -1,63 +1,55 @@
 import 'package:dio/dio.dart';
-import 'custom_exception.dart';
 
-class ApiProvider {
-  late Dio dio;
+class DioClient {
+
+  static final Dio _dio = Dio();
   final Duration _timeout = const Duration(milliseconds: 30000);
 
-  ApiProvider() {
-    dio = Dio(
-      BaseOptions(
-        validateStatus: (status) {
-          return true;
-        },
-        followRedirects: false,
-        baseUrl: "http://newsapi.org/v2/",
-        connectTimeout: _timeout,
-        receiveTimeout: _timeout,
-      ),
-    );
+  DioClient(String baseUrl){
+    _dio
+      ..options.baseUrl = baseUrl
+      ..options.responseType = ResponseType.json
+      ..options.connectTimeout = _timeout
+      ..options.receiveTimeout = _timeout;
   }
 
-  Future<Map<String, dynamic>> get(String endPoint) async {
+
+  Future<Response> get(
+      String url, {
+        Options? options,
+        Map<String, dynamic>? queryParameters,
+      }) async {
+
     try {
-      final Response response = await dio.get(
-        endPoint,
+      final Response response = await _dio.get(
+        url,
+        options: options,
+        queryParameters: queryParameters,
       );
-      final Map<String, dynamic> responseData = classifyResponse(response);
-      return responseData;
-    } on DioError catch (err) {
-      throw FetchDataException("internetError");
+      return response;
+    } catch (e) {
+      rethrow;
     }
   }
 
-  Future<Map<String, dynamic>> post(String endPoint, Map<String, dynamic> body) async {
+  Future<Response> post(
+      String url, {
+        dynamic data,
+        Options? options,
+        Map<String, dynamic>? queryParameters,
+      }) async {
+
     try {
-      final Response response = await dio.post(
-        endPoint,
-        data: body,
+      final Response response = await _dio.post(
+        url,
+        queryParameters: queryParameters,
+        options: options,
+        data: data,
       );
-      final Map<String, dynamic> responseData = classifyResponse(response);
-      return responseData;
-    } on DioError catch (err) {
-      throw FetchDataException("internetError");
+      return response;
+    } catch (e) {
+      rethrow;
     }
   }
 
-  Map<String, dynamic> classifyResponse(Response response) {
-    final Map<String, dynamic> responseData = response.data as Map<String, dynamic>;
-    switch (response.statusCode) {
-      case 200:
-      case 201:
-        return responseData;
-      case 400:
-      case 401:
-        throw UnauthorisedException(responseData["error"].toString());
-      case 500:
-      default:
-        throw FetchDataException(
-          'Error occurred while Communication with Server with StatusCode : ${response.statusCode}',
-        );
-    }
-  }
 }
