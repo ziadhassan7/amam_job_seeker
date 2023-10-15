@@ -4,17 +4,17 @@ import '../../../../core/api_provider.dart';
 import '../../../../core/endpoints.dart';
 import '../model/weather_model.dart';
 
-class GetWeatherRepo {
+class WeatherRepo {
 
   /// Use Weather Api
-  DioClient dio = DioClient(weatherBaseUrl);
+  DioClient dio = DioClient(openWeatherBaseUrl);
 
   // Get Today's weather from location
   Future<WeatherModel> getCurrentWeather({required String latitude, required String longitude}) async {
 
     try {
       Response response = await dio.get(
-          endpoint,
+          weatherEndpoint,
           queryParameters: {
             "apikey": weatherApiKey,
             "lat": latitude,
