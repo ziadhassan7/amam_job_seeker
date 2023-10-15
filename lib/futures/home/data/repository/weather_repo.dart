@@ -1,27 +1,29 @@
-import 'package:amam_job_seeker_assessment/futures/weather/data/model/geo_model.dart';
 import 'package:dio/dio.dart';
 import '../../../../core/api_key.dart';
 import '../../../../core/api_provider.dart';
 import '../../../../core/endpoints.dart';
+import '../model/weather_model.dart';
 
-class GeoRepo {
+class WeatherRepo {
 
   /// Use Weather Api
   DioClient dio = DioClient(openWeatherBaseUrl);
 
   // Get Today's weather from location
-  Future<GeoModel> getCurrentWeather({required String cityName}) async {
+  Future<WeatherModel> getCurrentWeather({required String latitude, required String longitude}) async {
 
     try {
       Response response = await dio.get(
-          geoEndpoint,
+          weatherEndpoint,
           queryParameters: {
-            "apikey": weatherApiKey,
-            "q": cityName,
+            "appid": weatherApiKey,
+            "lat": latitude,
+            "lon": longitude,
+            "units": "metric",
           }
       );
 
-      return GeoModel.fromJson(response.data);
+      return WeatherModel.fromJson(response.data);
 
     } catch (e) {
       print("Authorization error");
