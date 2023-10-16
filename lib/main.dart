@@ -1,4 +1,4 @@
-import 'package:amam_job_seeker_assessment/futures/home/presentation/pages/home_page.dart';
+import 'package:amam_job_seeker_assessment/futures/auth/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'injection.dart' as inject;
 
@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   ///Make App Ready - before building screen
   @override
   void initState() {
-    startScreen = const HomePage();
+    startScreen = const LoginPage();
     super.initState();
   }
 

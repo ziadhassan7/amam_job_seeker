@@ -17,6 +17,7 @@ class TextView extends StatelessWidget {
   final TextAlign? textAlign;
   final TextDirection? textDirection;
   final FontFamily? fontFamily;
+  static FontFamily? defaultFontFamily;
 
   const TextView(
       this.text,
@@ -35,42 +36,46 @@ class TextView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData(textTheme: getTheme(context),),
+    return Text(
+        text,
 
-      child: Text(
-          text,
+        textAlign: textAlign,
+        maxLines: maxLine,
+        softWrap: softWrap,
+        textDirection: textDirection,
+        overflow: overflow,
 
-          textAlign: textAlign,
-          maxLines: maxLine,
-          softWrap: softWrap,
-          textDirection: textDirection,
+        style: getTheme(
+            size: size,
+            weight: weight,
+            color: color,
+          ),
 
-          style: TextStyle(
-              fontSize: size,
-              fontWeight: weight,
-              overflow: overflow,
-              color: color,
-            ),
-
-      ),
     );
   }
 
-  TextTheme getTheme(BuildContext context, ){
+  TextStyle getTheme({double? size, FontWeight? weight, Color? color}){
+
+    //get default font
+    FontFamily? currentFamily = defaultFontFamily;
+
+    //override, if provided a font family
+    if(fontFamily != null){
+      currentFamily = fontFamily;
+    }
 
 
-    switch (fontFamily) {
+    switch (currentFamily) {
       //InriaSans
       case FontFamily.inriaSans:
-        return GoogleFonts.inriaSansTextTheme(Theme.of(context).textTheme,);
+        return GoogleFonts.inriaSans(fontSize: size, fontWeight: weight, color: color);
       //Poppins
       case FontFamily.poppins:
-        return GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme,);
+        return GoogleFonts.poppins(fontSize: size, fontWeight: weight, color: color);
 
-      //default - InriaSans
+      //default - null
       case null:
-        return GoogleFonts.inriaSansTextTheme(Theme.of(context).textTheme,);
+        return TextStyle(fontSize: size, fontWeight: weight, color: color);
     }
 
   }
