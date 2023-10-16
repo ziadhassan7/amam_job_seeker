@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import '../../../../core/api_key.dart';
+import '../../../../core/constanst/api_key.dart';
 import '../../../../core/api_provider.dart';
-import '../../../../core/endpoints.dart';
+import '../../../../core/constanst/endpoints.dart';
 import '../model/geo_model.dart';
 
 class GeoRepo {
