@@ -1,4 +1,5 @@
 import 'package:amam_job_seeker_assessment/core/styles/app_colors.dart';
+import 'package:amam_job_seeker_assessment/core/styles/app_screen.dart';
 import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view.dart';
 import 'package:flutter/material.dart';
 
@@ -36,33 +37,29 @@ class InputField extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
 
-          child: Expanded(
-            child: SizedBox(
-              height: isExpanded ?
-              MediaQuery.of(context).size.height * 0.40
-                  : 70,
+          child: SizedBox(
+            height: isExpanded ? (AppScreen(context).height * 0.40) : 70,
 
-              child: TextFormField(
-                  expands: isExpanded ? true : false,
-                  textAlignVertical: TextAlignVertical.top,
-                  minLines: null,
-                  maxLines: isPassword? 1:null,
-                  obscureText: isPassword? true:false,
-                  enableSuggestions: isPassword? false:true,
-                  autocorrect: isPassword? false:true,
+            child: TextFormField(
+                expands: isExpanded ? true : false,
+                textAlignVertical: TextAlignVertical.top,
+                minLines: null,
+                maxLines: isPassword? 1:null,
+                obscureText: isPassword? true:false,
+                enableSuggestions: isPassword? false:true,
+                autocorrect: isPassword? false:true,
 
-                  controller: textController,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 3, color: AppColor.accent),
-                        borderRadius: BorderRadius.circular(5)),
+                controller: textController,
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(width: 3, color: AppColor.accent),
+                      borderRadius: BorderRadius.circular(5)),
 
-                    border: OutlineInputBorder(
-                      borderSide: const BorderSide(width: 3, color: Colors.grey),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  )
-              ),
+                  border: OutlineInputBorder(
+                    borderSide: const BorderSide(width: 3, color: Colors.grey),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                )
             ),
           ),
         )
