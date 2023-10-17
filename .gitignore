@@ -32,7 +32,7 @@ migrate_working_dir/
 .pub/
 /build/
 /lib/core/constanst/api_key.dart
-lib/core/firebase_options.dart
+lib/firebase_options.dart
 
 # Symbolication related
 app.*.symbols
