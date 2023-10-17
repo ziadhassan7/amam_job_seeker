@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../app_common_widgets/custom_button.dart';
-import '../../manager/controller/account_conroller.dart';
+import '../../manager/controller/auth_conroller.dart';
 import '../../manager/controller/input_controller.dart';
 
 class LoginButton extends ConsumerWidget {

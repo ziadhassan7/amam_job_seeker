@@ -2,7 +2,7 @@ import 'package:amam_job_seeker_assessment/futures/auth/presentation/manager/con
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../app_common_widgets/custom_button.dart';
-import '../../manager/controller/account_conroller.dart';
+import '../../manager/controller/auth_conroller.dart';
 
 class SignUpButton extends ConsumerWidget {
   const SignUpButton({super.key});
