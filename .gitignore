@@ -31,7 +31,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-/lib/core/constanst/api_key.dart
+/lib/core/api/constanst/api_key.dart
 lib/firebase_options.dart
 
 # Symbolication related
