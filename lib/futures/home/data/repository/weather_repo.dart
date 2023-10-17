@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import '../../../../core/constanst/api_key.dart';
-import '../../../../core/api_provider.dart';
+import '../../../../core/api/api_provider.dart';
 import '../../../../core/constanst/endpoints.dart';
 import '../model/weather_model.dart';
 

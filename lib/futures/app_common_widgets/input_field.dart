@@ -6,64 +6,85 @@ import 'package:flutter/material.dart';
 class InputField extends StatelessWidget {
   final String? label;
   final bool isPassword;
+  final double? width;
+  final int? maxLines;
   final TextEditingController textController;
+  final String? Function(String?)? validator;
+  final GlobalKey<FormState>? formKey;
   final bool isExpanded;
 
   const InputField(
-      {Key? key,
+      {super.key,
         required this.label,
         required this.isPassword,
+        this.width,
+        this.maxLines,
         required this.textController,
-        required this.isExpanded})
-      : super(key: key);
+        this.validator,
+        this.formKey,
+        this.isExpanded = false})
+
+      : assert(validator == null || formKey != null,
+        'Cannot have a validator without a formKey'
+      );
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return SizedBox(
+      width: width,
 
-      children: [
-        Visibility(
-          visible: label != null,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
 
-          child: TextView(
-            label!,
-            size: 12,
-            weight: FontWeight.w500,
-            color: AppColor.primaryLight,
-          ),
-        ),
+        children: [
+          Visibility(
+            visible: label != null,
 
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-
-          child: SizedBox(
-            height: isExpanded ? (AppScreen(context).height * 0.40) : 70,
-
-            child: TextFormField(
-                expands: isExpanded ? true : false,
-                textAlignVertical: TextAlignVertical.top,
-                minLines: null,
-                maxLines: isPassword? 1:null,
-                obscureText: isPassword? true:false,
-                enableSuggestions: isPassword? false:true,
-                autocorrect: isPassword? false:true,
-
-                controller: textController,
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(width: 3, color: AppColor.accent),
-                      borderRadius: BorderRadius.circular(5)),
-
-                  border: OutlineInputBorder(
-                    borderSide: const BorderSide(width: 3, color: Colors.grey),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                )
+            child: TextView(
+              label!,
+              size: 12,
+              weight: FontWeight.w500,
+              color: AppColor.primaryLight,
             ),
           ),
-        )
-      ],
+
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+
+            child: SizedBox(
+              height: isExpanded ? (AppScreen(context).height * 0.40) : 70,
+
+              child: Form(
+                key: formKey,
+
+                child: TextFormField(
+                    expands: isExpanded ? true : false,
+                    textAlignVertical: TextAlignVertical.top,
+                    minLines: null,
+                    maxLines: isPassword? 1:maxLines,
+                    obscureText: isPassword? true:false,
+                    enableSuggestions: isPassword? false:true,
+                    autocorrect: isPassword? false:true,
+
+                    controller: textController,
+                    validator: validator,
+
+                    decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 3, color: AppColor.accent),
+                          borderRadius: BorderRadius.circular(5)),
+
+                      border: OutlineInputBorder(
+                        borderSide: const BorderSide(width: 3, color: Colors.grey),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    )
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

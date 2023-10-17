@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 
-class CustomException implements Exception {
+class ApiException implements Exception {
   late String message;
 
-  CustomException.fromDioError(DioException dioError) {
+  ApiException.fromDioError(DioException dioError) {
     switch (dioError.type) {
       case DioExceptionType.cancel:
         message = "Request to API server was cancelled";
