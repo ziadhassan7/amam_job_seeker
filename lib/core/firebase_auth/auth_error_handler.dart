@@ -6,7 +6,9 @@ class AuthErrorHandler {
 
     switch (e.code) {
       case "INVALID_LOGIN_CREDENTIALS":
-        return "This email doesn't exist";
+        return "Check your email & password";
+        case "email-already-in-use":
+        return "This email already exists";
 
       default:
         return e.message ?? "Undefined Error";
