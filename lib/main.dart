@@ -1,5 +1,6 @@
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'injection.dart' as inject;
 
 Future<void> main() async {
@@ -8,7 +9,7 @@ Future<void> main() async {
   //initialization
   await inject.init();
 
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatefulWidget {

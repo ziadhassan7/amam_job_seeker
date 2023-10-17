@@ -26,10 +26,10 @@ class TextView extends StatelessWidget {
         this.size,
         this.weight,
         this.color,
-        this.maxLine,
+        this.maxLine = 1000,
         this.softWrap,
         this.overflow = TextOverflow.ellipsis,
-        this.textAlign,
+        this.textAlign = TextAlign.center,
         this.textDirection,
         this.fontFamily
       }) : super(key: key);

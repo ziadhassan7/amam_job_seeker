@@ -1,7 +1,12 @@
-import 'package:amam_job_seeker_assessment/futures/app_common_widgets/input_field.dart';
-import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view.dart';
-import 'package:amam_job_seeker_assessment/futures/auth/presentation/manager/input_controller.dart';
+import 'package:amam_job_seeker_assessment/core/styles/padding.dart';
+import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/app_logo.dart';
+import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/buttons/login_button.dart';
+import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/change_auth_page_button/go_to_register_text.dart';
+import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/email_field.dart';
+import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/error_text.dart';
+import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/password_field.dart';
 import 'package:flutter/material.dart';
+
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -10,26 +15,33 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
 
-        child: Column(
-          children: [
-            const TextView("Amam", size: 18,),
+        child: Padding(
+          padding: CustomPadding(vertical: 18, horizontal: 20),
 
-            InputField(
-                label: "Email",
-                isPassword: false,
-                textController: InputController.email,
-                isExpanded: false),
+          child: Column(
+            children: [
+              //Logo
+              AppLogo(),
+              SizedBox(height: 80,),
 
-            InputField(
-                label: "Password",
-                isPassword: true,
-                textController: InputController.password,
-                isExpanded: false),
-          ],
+              //Fields
+              EmailField(),
+              PasswordField(),
+              //Don't have an Account? Signup
+              GoToRegisterText(),
+
+
+              Spacer(),
+
+              //error text
+              ErrorText(),
+              //sign up button
+              LoginButton(),
+            ],
+          ),
         ),
       ),
     );
