@@ -24,8 +24,8 @@ class InputController{
   }
 
   static String? rePasswordValidator(String? value){
-    if ((value == null || value.isEmpty)
-        && (password.text == rePassword.text)) {
+    if (value == null || value.isEmpty
+        || (password.text != rePassword.text)) {
       return "Password is not the same";
     }
     return null;
