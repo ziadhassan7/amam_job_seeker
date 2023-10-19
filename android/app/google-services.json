@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "769471668045",
-    "project_id": "amam-job-seeking",
-    "storage_bucket": "amam-job-seeking.appspot.com"
+    "project_number": "985387281127",
+    "project_id": "amam-job-seeking-68850",
+    "storage_bucket": "amam-job-seeking-68850.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:769471668045:android:8e3d82f400427b42492104",
+        "mobilesdk_app_id": "1:985387281127:android:b8c945bb45ca04996e1042",
         "android_client_info": {
           "package_name": "com.ziad.amam_job_seeker_assessment"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDLhPw-Z7trZ7hoiZYMFY18PGaJjEEhnLE"
+          "current_key": "AIzaSyBdeqAW2uQXA1zJnGS6snipBdPkMeyZiyk"
         }
       ],
       "services": {
