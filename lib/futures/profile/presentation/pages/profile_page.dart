@@ -1,10 +1,5 @@
 import 'package:amam_job_seeker_assessment/core/styles/app_screen.dart';
-import 'package:amam_job_seeker_assessment/futures/app_common_widgets/custom_button.dart';
 import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view.dart';
-import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/email_field.dart';
-import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/user_name_field.dart';
-import 'package:amam_job_seeker_assessment/futures/profile/presentation/widgets/phone_field.dart';
-import 'package:amam_job_seeker_assessment/futures/resume/presentation/manager/resume_controller.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/firebase/firebase_auth/auth.dart';
 import '../../../../core/styles/app_colors.dart';
@@ -40,37 +35,6 @@ class ProfilePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
 
                 children: [
-                  _alignmentSpace(),
-                  TextView(userName),
-                  TextView(userEmail),
-                  _alignmentSpace(),
-
-                  CustomButton(
-                    label: "Fill automatically with your CV",
-                    onPressed: () async {
-                      await ResumeController.pickFileAndUploadCv();
-                    },
-                  ),
-
-                  _alignmentSpace(isBig: true),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      customDivider(context),
-                      const TextView("  or fill manually  ", size: 11,),
-                      customDivider(context),
-                    ],
-                  ),
-
-                  _alignmentSpace(isBig: true),
-
-                  const UserNameField(),
-
-                  const EmailField(),
-
-                  const PhoneNumberField(),
-
 
                 ],
               ),
