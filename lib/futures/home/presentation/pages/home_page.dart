@@ -3,7 +3,9 @@ import '../../data/model/geo_model.dart';
 import '../manager/location_controller.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, required this.isLogged});
+
+  final bool isLogged;
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/pages/login_page.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/presentation/pages/profile_page.dart';
 import 'package:flutter/material.dart';
-import 'core/firebase_auth/auth.dart';
+import 'core/firebase/firebase_auth/auth.dart';
 
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});

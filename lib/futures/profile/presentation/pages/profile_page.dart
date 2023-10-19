@@ -4,8 +4,9 @@ import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view.
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/email_field.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/user_name_field.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/presentation/widgets/phone_field.dart';
+import 'package:amam_job_seeker_assessment/futures/resume/presentation/manager/resume_controller.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/firebase_auth/auth.dart';
+import '../../../../core/firebase/firebase_auth/auth.dart';
 import '../../../../core/styles/app_colors.dart';
 import '../../../../core/styles/padding.dart';
 
@@ -44,7 +45,12 @@ class ProfilePage extends StatelessWidget {
                   TextView(userEmail),
                   _alignmentSpace(),
 
-                  const CustomButton(label: "Fill automatically with your CV"),
+                  CustomButton(
+                    label: "Fill automatically with your CV",
+                    onPressed: () async {
+                      await ResumeController.pickFileAndUploadCv();
+                    },
+                  ),
 
                   _alignmentSpace(isBig: true),
 
