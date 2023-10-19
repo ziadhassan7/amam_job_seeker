@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:file_picker/file_picker.dart';
 
 class FileHelper {
@@ -13,6 +17,18 @@ class FileHelper {
 
     PlatformFile? filePath = result?.files.first;
     return filePath;
+  }
+
+
+  static String getStringBytesFromFile(File file) {
+    Uint8List bytes = file.readAsBytesSync();
+
+    return base64.encode(bytes);
+  }
+
+  static Stream<List<int>> getStreamBytesFromFile(File file) {
+
+    return file.openRead();
   }
 
 }
