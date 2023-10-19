@@ -37,7 +37,7 @@ class Auth {
   }
 
   ///                                                                           / User - Name
-  //Display name
+  //update display name
   Future<void> updateDisplayName(String name) async {
     if(currentUser != null){
       await currentUser!.updateDisplayName(name);
@@ -49,13 +49,13 @@ class Auth {
 
 
   ///                                                                           / User - Email
-  //Display name
+  //update email
   Future<void> updateUserEmail(String email) async {
     if(currentUser != null){
       await currentUser!.updateEmail(email);
     }
   }
 
-  //Get display name
+  //Get user email
   get userEmail => (currentUser != null) ? currentUser!.email : "";
 }

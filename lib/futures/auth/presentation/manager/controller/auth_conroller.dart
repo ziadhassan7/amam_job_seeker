@@ -2,7 +2,7 @@ import 'package:amam_job_seeker_assessment/futures/auth/presentation/manager/con
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/manager/state_manger/auth_message_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../../../core/firebase_auth/auth.dart';
+import '../../../../../core/firebase/firebase_auth/auth.dart';
 
 class AuthController {
   late final WidgetRef _ref;
