@@ -16,7 +16,7 @@ class WeatherRepo {
       Response response = await dio.get(
           weatherEndpoint,
           queryParameters: {
-            "appid": weatherApiKey,
+            "appid": openWeatherApiKey,
             "lat": latitude,
             "lon": longitude,
             "units": "metric",

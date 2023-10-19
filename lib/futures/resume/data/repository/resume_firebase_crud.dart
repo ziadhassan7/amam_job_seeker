@@ -3,7 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import '../../../../core/firebase/constants/firebase_const.dart';
 import '../../../../core/firebase/storage/firebase_storage_client.dart';
 
-class ResumeCrud {
+class ResumeFirebaseCrud {
 
   static final _firebaseStorageClient = FirebaseStorageClient();
 

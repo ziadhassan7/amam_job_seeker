@@ -16,7 +16,7 @@ class GeoRepo {
       Response response = await dio.get(
           geoEndpoint,
           queryParameters: {
-            "appid": weatherApiKey,
+            "appid": openWeatherApiKey,
             "q": cityName,
           }
       );
