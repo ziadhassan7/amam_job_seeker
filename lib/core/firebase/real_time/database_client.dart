@@ -1,26 +1,34 @@
 import 'package:firebase_database/firebase_database.dart';
 
+
 class DatabaseClient {
 
   static final FirebaseDatabase _database = FirebaseDatabase.instance;
 
+  /*
+  Remember to set your host location, before configuring Firebase
+  If you set it to another location different than US, you need to configure it again!
+  (or you will face some problems as firebase will not identify the database url)
+  (and will ask you to change it)
+   */
+
 
   //add
-  add(Map data, {String? dataPath}){
+  static add(Map data, {String? dataPath}){
     DatabaseReference ref = _database.ref(dataPath);
 
     ref.set(data);
   }
 
   //update
-  update(Map<String, dynamic> data, {String? dataPath}){
+  static update(Map<String, dynamic> data, {String? dataPath}){
     DatabaseReference ref = _database.ref(dataPath);
 
     ref.update(data);
   }
 
   //get
-  Object? getRealTime({String? dataPath}){
+  static Object? getRealTime({String? dataPath}){
     DatabaseReference ref = _database.ref(dataPath);
 
     Object? data;
@@ -33,7 +41,7 @@ class DatabaseClient {
     return data;
   }
 
-  Object? getOnce({String? dataPath}) async {
+  static Object? getOnce({String? dataPath}) async {
     DatabaseReference ref = _database.ref(dataPath);
 
     final event = await ref.once(DatabaseEventType.value);
@@ -41,7 +49,7 @@ class DatabaseClient {
   }
 
   //delete
-  delete({String? dataPath}){
+  static delete({String? dataPath}){
     DatabaseReference ref = _database.ref(dataPath);
 
     ref.remove();
