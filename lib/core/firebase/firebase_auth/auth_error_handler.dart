@@ -5,9 +5,9 @@ class AuthErrorHandler {
   static String getMessage(FirebaseAuthException e) {
 
     switch (e.code) {
-      case "INVALID_LOGIN_CREDENTIALS":
+      case "invalid-login-credentials":
         return "Check your email & password";
-        case "email-already-in-use":
+      case "email-already-in-use":
         return "This email already exists";
 
       default:

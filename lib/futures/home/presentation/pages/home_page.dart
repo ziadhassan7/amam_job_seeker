@@ -1,44 +1,29 @@
 import 'package:flutter/material.dart';
-import '../../data/model/geo_model.dart';
-import '../manager/location_controller.dart';
+import '../../../../core/styles/app_screen.dart';
+import '../views/desktop_view.dart';
+import '../views/mobile_view.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key, required this.isLogged});
+  const HomePage({super.key,});
 
-  final bool isLogged;
 
   @override
   Widget build(BuildContext context) {
 
-
     return Scaffold(
       body: SafeArea(
 
-        child: Column(
-          children: [
-            Center(
-              child: FutureBuilder(
-                future: LocationController.getLocationByCity("Cairo"),
-
-                builder: (context, AsyncSnapshot<GeoModel> snapshot) {
-
-                  if(snapshot.hasData){
-
-                    final long = snapshot.data!.longitude;
-                    final lat = snapshot.data!.latitude;
-
-                    return Text("Longitude: $long ,Latitude: $lat");
-
-                  } else {
-                    return const Center(child: CircularProgressIndicator(),);
-                  }
-
-                }
-              ),
-            ),
-          ],
-        ),
+        child: _getAdaptiveWidget(context)
       ),
     );
+  }
+
+  // Decide which screen to show user
+  static _getAdaptiveWidget(BuildContext context){
+    final screenWidth = AppScreen(context).width;
+
+    return (screenWidth > 700)
+        ? const DesktopView()
+        : const MobileView();
   }
 }

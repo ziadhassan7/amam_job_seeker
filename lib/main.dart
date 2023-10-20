@@ -1,4 +1,4 @@
-import 'package:amam_job_seeker_assessment/initial_page.dart';
+import 'package:amam_job_seeker_assessment/futures/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'injection.dart' as inject;
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreenAccent),
         useMaterial3: true,
       ),
-      home: const InitialPage(),
+      home: const HomePage(),
     );
   }
 }

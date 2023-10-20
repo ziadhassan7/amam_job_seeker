@@ -9,6 +9,9 @@ class CustomButton extends StatelessWidget {
   final ButtonStyle? style;
   final Color? backgroundColor;
   final Function()? onPressed;
+  final bool isBig;
+  final double? width;
+  final double? height;
 
   const CustomButton(
       {super.key,
@@ -16,12 +19,15 @@ class CustomButton extends StatelessWidget {
       this.textSize,
       this.style,
       this.backgroundColor,
-      this.onPressed});
+      this.onPressed,
+      this.isBig = false,
+      this.height,
+      this.width});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const CustomPadding(horizontal: 15, vertical: 8),
+      padding: CustomPadding(horizontal: 15, vertical: isBig ? 14:8),
 
       child: ElevatedButton(
         style: style ?? ButtonStyle(backgroundColor: MaterialStateProperty.all(
@@ -29,11 +35,15 @@ class CustomButton extends StatelessWidget {
 
         onPressed: onPressed,
 
-        child: TextView(
-          label,
-          size: textSize,
-          weight: FontWeight.w400,
-          color: Colors.white,
+        child: Padding(
+          padding: CustomPadding(vertical: height, horizontal: width),
+
+          child: TextView(
+            label,
+            size: textSize,
+            weight: isBig ? FontWeight.bold:FontWeight.w400,
+            color: Colors.black,
+          ),
         ),
       ),
     );

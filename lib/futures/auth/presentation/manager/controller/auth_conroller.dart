@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/manager/controller/input_controller.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/manager/state_manger/auth_message_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -41,5 +42,18 @@ class AuthController {
     } on FirebaseAuthException catch (e) {
       _ref.watch(authMessageProvider.notifier).postError(e);
     }
+  }
+
+
+  static Future<bool> isLogged() async {
+    final Completer<bool> completer = Completer<bool>();
+
+    Auth().authStateChanges.listen((user) {
+      final bool isLogged = (user != null);
+
+      completer.complete(isLogged);
+    });
+
+    return await completer.future;
   }
 }

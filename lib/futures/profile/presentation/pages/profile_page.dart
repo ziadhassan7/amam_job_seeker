@@ -15,10 +15,10 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.white,
         leading: const Icon(
           Icons.arrow_back_ios_new_outlined,
-          color: AppColor.accentDark,
+          color: AppColor.accentDarker,
           size: 20,
         ),
-        title: const TextView("Your Profile", color: AppColor.accentDark,),),
+        title: const TextView("Your Profile", color: AppColor.accentDarker,),),
 
 
       body: SafeArea(

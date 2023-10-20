@@ -13,7 +13,7 @@ class AuthMessageProvider extends StateNotifier<String>{
   AuthMessageProvider() : super("");
 
   void postError(FirebaseAuthException e) {
-    Log("Firebase Auth", e);
+    Log("Firebase Auth", e.code);
     state = AuthErrorHandler.getMessage(e);
   }
 

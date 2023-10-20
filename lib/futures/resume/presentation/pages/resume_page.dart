@@ -49,7 +49,7 @@ class ResumePage extends StatelessWidget {
 
                     TextButton(
                       onPressed: (){
-                        AppRouter.navigateTo(context, const HomePage(isLogged: true));
+                        AppRouter.navigateTo(context, const HomePage());
                       },
 
                       child: const TextView("Cancel", color: Colors.black45,)),
