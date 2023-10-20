@@ -1,4 +1,6 @@
+import 'package:amam_job_seeker_assessment/core/app_router.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/manager/controller/input_controller.dart';
+import 'package:amam_job_seeker_assessment/futures/resume/presentation/pages/resume_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../app_common_widgets/custom_button.dart';
@@ -16,6 +18,12 @@ class SignUpButton extends ConsumerWidget {
         onPressed: () {
           if(InputController.validateForRegister()){
             authController.register();
+
+            AuthController.isLogged().then((value) {
+              if(value) {
+                AppRouter.navigateTo(context, const ResumePage());
+              }
+            });
           }
         }
     );
