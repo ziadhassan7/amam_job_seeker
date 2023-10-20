@@ -8,7 +8,9 @@ import '../../../app_common_widgets/custom_button.dart';
 import '../manager/resume_controller.dart';
 
 class ResumePage extends StatelessWidget {
-  const ResumePage({super.key});
+  const ResumePage({super.key, this.isChange = false});
+
+  final bool isChange;
 
   @override
   Widget build(BuildContext context) {

@@ -36,7 +36,7 @@ class CustomButton extends StatelessWidget {
         onPressed: onPressed,
 
         child: Padding(
-          padding: CustomPadding(vertical: height, horizontal: width),
+          padding: CustomPadding(vertical: height??12, horizontal: width),
 
           child: TextView(
             label,
