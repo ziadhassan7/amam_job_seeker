@@ -1,7 +1,6 @@
 import 'package:amam_job_seeker_assessment/core/styles/app_screen.dart';
 import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/firebase/firebase_auth/auth.dart';
 import '../../../../core/styles/app_colors.dart';
 import '../../../../core/styles/padding.dart';
 
@@ -10,8 +9,6 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String userName = Auth().displayName;
-    String userEmail = Auth().userEmail;
 
     return Scaffold(
       appBar: AppBar(
@@ -52,7 +49,4 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  static Widget _alignmentSpace({bool isBig= false}){
-    return SizedBox(height: isBig ? 40 : 20,);
-  }
 }
