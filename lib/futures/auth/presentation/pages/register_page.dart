@@ -1,4 +1,4 @@
-import 'package:amam_job_seeker_assessment/core/styles/padding.dart';
+import 'package:amam_job_seeker_assessment/core/styles/adaptive_container.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/email_field.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/error_text.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/change_auth_page_button/go_to_login_text.dart';
@@ -13,14 +13,15 @@ import '../widget/leading_text.dart';
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
 
+  static const double _maxWidth = 600;
+
   @override
   Widget build(BuildContext context) {
 
     return const Scaffold(
       body: SafeArea(
-
-        child: Padding(
-          padding: CustomPadding(vertical: 24, horizontal: 20),
+        child: AdaptiveContainer(
+          maxWidth: _maxWidth,
 
           child: SingleChildScrollView(
 
@@ -30,7 +31,7 @@ class RegisterPage extends StatelessWidget {
                 LeadingText(title: "Create Account"),
 
                 //Fields
-                UserNameField(),
+                UserNameField(fullWidth: _maxWidth),
                 EmailField(),
                 PasswordField(),
                 RePasswordField(),

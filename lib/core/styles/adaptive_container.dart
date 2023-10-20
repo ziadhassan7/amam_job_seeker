@@ -5,9 +5,11 @@ import 'app_screen.dart';
 import 'box_decoration.dart';
 
 class AdaptiveContainer extends StatelessWidget {
-  const AdaptiveContainer({super.key, required this.child});
+  const AdaptiveContainer(
+      {super.key, required this.maxWidth, required this.child});
 
   final Widget child;
+  final double maxWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +24,10 @@ class AdaptiveContainer extends StatelessWidget {
           child: Container(
             padding: const CustomPadding(vertical: 18, horizontal: 20),
             decoration: CustomDecoration(radius: 18, backgroundColor: Colors.white,),
-            width: 390,
+            width: null,
             height: getHeight(context),
 
-            child: child,
+            child: SizedBox(width: maxWidth, child: child),
           ),
         ),
       ),
