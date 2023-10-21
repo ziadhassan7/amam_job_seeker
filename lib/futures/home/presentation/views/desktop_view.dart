@@ -7,6 +7,8 @@ import 'package:amam_job_seeker_assessment/futures/home/presentation/widgets/sho
 import 'package:amam_job_seeker_assessment/futures/home/presentation/widgets/top_bar/top_bar_not_signed.dart';
 import 'package:flutter/material.dart';
 import '../widgets/leading_buttons/leading_button_not_signed.dart';
+import '../widgets/leading_buttons/leading_button_signed.dart';
+import '../widgets/top_bar/top_bar_signed.dart';
 
 class DesktopView extends StatelessWidget {
   const DesktopView({super.key});
@@ -34,7 +36,7 @@ class DesktopView extends StatelessWidget {
 
             children: [
               const ShowOnLogged(
-                  loggedWidget: TopBarNotSigned(),
+                  loggedWidget: TopBarSigned(),
                   notLoggedWidget: TopBarNotSigned()),
 
               const ResponsiveSpace(),
@@ -52,7 +54,7 @@ class DesktopView extends StatelessWidget {
 
                     //Create Account / View Profile
                     ShowOnLogged(
-                      loggedWidget: LeadingButtonsNotSigned(scale: 1.2,),
+                      loggedWidget: LeadingButtonsSigned(scale: 1.2,),
                       notLoggedWidget: LeadingButtonsNotSigned(scale: 1.2,),),
                   ],
                 ),

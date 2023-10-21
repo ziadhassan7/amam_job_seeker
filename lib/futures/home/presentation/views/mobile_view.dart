@@ -3,8 +3,10 @@ import 'package:amam_job_seeker_assessment/futures/home/presentation/widgets/lea
 import 'package:flutter/material.dart';
 import '../../../../core/styles/app_screen.dart';
 import '../widgets/illustration_widget.dart';
+import '../widgets/leading_buttons/leading_button_signed.dart';
 import '../widgets/responsive_space.dart';
 import '../widgets/show_on_logged.dart';
+import '../widgets/top_bar/top_bar_signed.dart';
 
 class MobileView extends StatelessWidget {
   const MobileView({super.key});
@@ -29,6 +31,10 @@ class MobileView extends StatelessWidget {
           child: Column(
             children: [
 
+              ShowOnLogged(
+                  loggedWidget: TopBarSigned(),
+                  notLoggedWidget: SizedBox()),
+
               ResponsiveSpace(),
 
               //Looking for a Job? We will get you hired
@@ -39,7 +45,7 @@ class MobileView extends StatelessWidget {
 
               //Create Account / View Profile
               ShowOnLogged(
-                  loggedWidget: LeadingButtonsNotSigned(),
+                  loggedWidget: LeadingButtonsSigned(),
                   notLoggedWidget: LeadingButtonsNotSigned()),
 
             ],

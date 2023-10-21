@@ -13,7 +13,7 @@ class LeadingText extends StatelessWidget {
 
       children: [
         TextView("Looking For a Job?", size: 36 * scale, weight: FontWeight.bold,),
-        TextView("We will get you hired!", size: 26 * scale),
+        TextView("We will get you hired!", size: 18 * scale),
       ],
     );
   }
