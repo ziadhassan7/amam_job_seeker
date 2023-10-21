@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 import '../../../../../core/app_router.dart';
 import 'leading_button.dart';
 
-class LeadingButtonSigned extends StatelessWidget {
-  const LeadingButtonSigned({super.key});
+class LeadingButtonsSigned extends StatelessWidget {
+  const LeadingButtonsSigned({super.key, this.scale =1});
+
+  final double scale;
 
   @override
   Widget build(BuildContext context) {
     return LeadingButton(
+      scale: scale,
       leadingButtonTitle: "View Profile",
       leadingButtonFunction: (){
         AppRouter.navigateTo(context, const ProfilePage()); //go to user Profile

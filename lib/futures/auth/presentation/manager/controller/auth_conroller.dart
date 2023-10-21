@@ -3,6 +3,7 @@ import 'package:amam_job_seeker_assessment/futures/auth/presentation/manager/con
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/manager/state_manger/auth_message_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../../core/custom_log.dart';
 import '../../../../../core/firebase/firebase_auth/auth.dart';
 
 class AuthController {
@@ -10,37 +11,46 @@ class AuthController {
 
   AuthController(this._ref);
 
-  login() async {
+  Future<bool> login() async {
     try {
       await Auth().login(
           email: InputController.email.text,
           password: InputController.password.text);
 
+      return true;
+
     } on FirebaseAuthException catch (e) {
       _ref.watch(authMessageProvider.notifier).postError(e);
+      return false;
     }
   }
 
-  register() async {
+  Future<bool> register() async {
     try {
       await Auth().registerUser(
           name: "${InputController.firstName.text} ${InputController.lastName.text}",
           email: InputController.email.text,
           password: InputController.password.text);
 
+      return true;
+
     } on FirebaseAuthException catch (e) {
       _ref.watch(authMessageProvider.notifier).postError(e);
+      return false;
     }
   }
 
-  logout() async {
+  static Future<bool> logout() async {
     try {
       await Auth().logout(
           email: InputController.email.text,
           password: InputController.password.text);
 
+      return true;
+
     } on FirebaseAuthException catch (e) {
-      _ref.watch(authMessageProvider.notifier).postError(e);
+      Log("FirebaseAuth:", e);
+      return false;
     }
   }
 

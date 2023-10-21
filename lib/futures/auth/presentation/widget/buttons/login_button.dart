@@ -15,15 +15,13 @@ class LoginButton extends ConsumerWidget {
 
     return CustomButton(
         label: "Login",
-        onPressed: () {
-          if(InputController.validateForLogin()){
-            authController.login();
+        onPressed: () async {
+          if (InputController.validateForLogin()) {
+            bool isLogged = await authController.login();
 
-            AuthController.isLogged().then((value) {
-              if(value) {
-                AppRouter.navigateTo(context, const HomePage());
-              }
-            });
+            if (isLogged) {
+              if (context.mounted) AppRouter.navigateTo(context, const HomePage());
+            }
           }
         }
     );

@@ -15,15 +15,13 @@ class SignUpButton extends ConsumerWidget {
 
     return CustomButton(
         label: "Sign Up",
-        onPressed: () {
+        onPressed: () async {
           if(InputController.validateForRegister()){
-            authController.register();
+            bool isRegistered = await authController.login();
 
-            AuthController.isLogged().then((value) {
-              if(value) {
-                AppRouter.navigateTo(context, const ResumePage());
-              }
-            });
+            if (isRegistered) {
+              if (context.mounted) AppRouter.navigateTo(context, const ResumePage());
+            }
           }
         }
     );
