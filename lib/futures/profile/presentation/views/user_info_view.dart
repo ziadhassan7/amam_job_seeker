@@ -15,7 +15,7 @@ class UserInfoView extends StatelessWidget {
       children: [
 
         infoWidget("Name", getFullName()),
-        infoWidget("Phone Number", getPhone()),
+        infoWidget("Phone Number", "0${getPhone()}"),
         infoWidget("City", getCity()),
 
       ],

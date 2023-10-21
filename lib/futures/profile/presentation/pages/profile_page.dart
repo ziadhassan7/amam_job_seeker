@@ -1,11 +1,11 @@
 import 'package:amam_job_seeker_assessment/core/styles/adaptive_container.dart';
-import 'package:amam_job_seeker_assessment/core/styles/app_screen.dart';
-import 'package:amam_job_seeker_assessment/futures/profile/data/model/profile_model.dart';
+import 'package:amam_job_seeker_assessment/futures/auth/presentation/pages/login_page.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/data/repository/profile_repo.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/no_data_view.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/user_info_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/app_router.dart';
 import '../../../../core/firebase/firebase_auth/auth.dart';
 import '../../../../core/styles/adaptive_app_bar.dart';
 import '../../../../core/styles/padding.dart';
@@ -33,16 +33,25 @@ class ProfilePage extends StatelessWidget {
             child: Center(
 
               child: FutureBuilder(
-                future: getUserData(),
+                future: getUserData(context),
                 builder: (context, AsyncSnapshot snapshot) {
 
                   if(snapshot.hasData){
 
-                    final ProfileModel data = snapshot.data!;
-                    final ProfileModelData? userInfo = data.data;
+                    Object data = snapshot.data;
 
-                    if(userInfo != null) {
-                      return UserInfoView(data: userInfo,);
+                    if(data != ProfileException.noData ){
+
+                      final ProfileModelData? userInfo = ProfileRepo.getProfileData(data);
+
+
+                      if(userInfo != null){
+                        return UserInfoView(data: userInfo,);
+
+                      } else {
+                        return const NoDataView();
+                      }
+
 
                     } else {
                       return const NoDataView();
@@ -61,15 +70,9 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget customDivider(BuildContext context){
-    return Expanded(
-      child: Container(color: Colors.black12,
-        width: AppScreen(context).width/3, height: 1,),
-    );
-  }
 
-
-  Future<ProfileModel?> getUserData() async {
+  // get user profile from database
+  Future<Object?> getUserData(BuildContext context) async {
 
     User? user = Auth().currentUser;
 
@@ -77,6 +80,7 @@ class ProfilePage extends StatelessWidget {
       return await ProfileRepo.getProfile(user.uid);
     }
 
+    AppRouter.navigateTo(context, const LoginPage());
     return null;
   }
 
