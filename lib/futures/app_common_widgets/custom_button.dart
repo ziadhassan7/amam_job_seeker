@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
       required this.label,
       this.textSize,
       this.style,
-      this.backgroundColor,
+      this.backgroundColor = AppColor.accent,
       this.onPressed,
       this.isBig = false,
       this.height,
@@ -31,7 +31,7 @@ class CustomButton extends StatelessWidget {
 
       child: ElevatedButton(
         style: style ?? ButtonStyle(backgroundColor: MaterialStateProperty.all(
-                    backgroundColor ?? AppColor.accent)),
+                    backgroundColor)),
 
         onPressed: onPressed,
 
