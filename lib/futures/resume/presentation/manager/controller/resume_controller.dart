@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:amam_job_seeker_assessment/core/utils/file_helper.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/data/repository/profile_repo.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/data/repository/resume_firebase_crud.dart';
+import 'package:amam_job_seeker_assessment/futures/resume/presentation/manager/controller/upload_status_controller.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/presentation/manager/state_manager/upload_failed_provider.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -27,8 +28,12 @@ class ResumeController {
 
         //If user is logged in
         if(Auth().currentUser != null){
+          try{
+            _storeUserDataFromResume(file);
 
-          _storeUserDataFromResume(file);
+          }catch (e){
+            handleException();
+          }
         }
       }
     }
@@ -42,30 +47,30 @@ class ResumeController {
 
     if(resumeLink != null) {
 
-      // delay for cv link to appear in Firebase Storage
-      Future.delayed(const Duration(milliseconds: 500), () async {
-        //get data from cv
-        Map? data = await _parseUserProfileFromResume(resumeLink);
+      //get data from cv
+      Map? data = await _parseUserProfileFromResume(resumeLink);
 
-        //store user data in firebase
-        data != null
+      //store user data in firebase
+      data != null
           ? _storeUserProfile(data)
-          : handeException();
-
-      });
+          : handleException();
 
     } else {
-      handeException();
+      handleException();
     }
   }
 
 
   //upload resume to Firebase Storage
   //get file url
-  static Future<String?> _uploadResume(File file) async {
+  Future<String?> _uploadResume(File file) async {
+    //start loading widget
+    UploadStatusController.triggerLoading(ref);
+    //upload...
     Reference? resume = await ResumeFirebaseCrud.uploadResume(file, userId: Auth().currentUser!.uid,);
 
     if(resume != null){
+      //get url
       return await resume.getDownloadURL();
     }
 
@@ -74,19 +79,22 @@ class ResumeController {
 
 
   //parse cv with superparser api
-   static Future<Map?> _parseUserProfileFromResume(String resumeUrl) async{
+   Future<Map?> _parseUserProfileFromResume(String resumeUrl) async{
 
      return await ResumeRepo.parseUrlResume(resumeUrl: "$resumeUrl.");
   }
 
 
   //store data in realtime_database
-  static _storeUserProfile(Map data) async {
+  _storeUserProfile(Map data) async {
+    //add user profile
     ProfileRepo.addProfile(data, Auth().currentUser!.uid);
+    //close loading widget
+    UploadStatusController.finishLoading(ref);
   }
 
 
-  handeException(){
+  handleException(){
     //Exception dialog
    ref.read(uploadFailedProvider.notifier).show();
   }
