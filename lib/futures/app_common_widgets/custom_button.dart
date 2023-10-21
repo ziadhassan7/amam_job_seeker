@@ -30,8 +30,7 @@ class CustomButton extends StatelessWidget {
       padding: CustomPadding(horizontal: 15, vertical: isBig ? 14:8),
 
       child: ElevatedButton(
-        style: style ?? ButtonStyle(backgroundColor: MaterialStateProperty.all(
-                    backgroundColor)),
+        style: getStyle(),
 
         onPressed: onPressed,
 
@@ -47,5 +46,16 @@ class CustomButton extends StatelessWidget {
         ),
       ),
     );
+  }
+
+
+  getStyle(){
+    if(onPressed != null){
+      return style ?? ButtonStyle(backgroundColor: MaterialStateProperty.all(
+          backgroundColor));
+
+    } else {
+      return style;
+    }
   }
 }

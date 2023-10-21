@@ -12,12 +12,12 @@ class ResumeFirebaseCrud {
 
     const profileCollection = firebase_collection_profile;
 
-    final UploadTask? uploadTask = _firebaseStorageClient.uploadFile(
+    final TaskSnapshot? uploadTask = await _firebaseStorageClient.uploadFile(
         file, filePath: "$profileCollection/$userId/cv");
 
 
     if(uploadTask != null) {
-      return uploadTask.snapshot.ref;
+      return uploadTask.ref;
     }
 
     return null;

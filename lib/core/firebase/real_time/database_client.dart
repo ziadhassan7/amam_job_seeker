@@ -14,14 +14,14 @@ class DatabaseClient {
 
 
   //add
-  static add(Map data, {String? dataPath}){
+  static add(Object data, {String? dataPath}){
     DatabaseReference ref = _database.ref(dataPath);
 
     ref.set(data);
   }
 
   //update
-  static update(Map<String, dynamic> data, {String? dataPath}){
+  static update(Map<String, Object> data, {String? dataPath}){
     DatabaseReference ref = _database.ref(dataPath);
 
     ref.update(data);
@@ -41,7 +41,7 @@ class DatabaseClient {
     return data;
   }
 
-  static Object? getOnce({String? dataPath}) async {
+  static Future<Object?> getOnce({String? dataPath}) async {
     DatabaseReference ref = _database.ref(dataPath);
 
     final event = await ref.once(DatabaseEventType.value);
