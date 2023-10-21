@@ -11,6 +11,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.white,
+
       body: SafeArea(
 
         child: _getAdaptiveWidget(context)
