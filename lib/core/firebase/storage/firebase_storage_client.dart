@@ -10,13 +10,13 @@ class FirebaseStorageClient {
 
 
   /// Upload File
-  UploadTask? uploadFile(File file, {required String filePath}){
+  Future<TaskSnapshot?> uploadFile(File file, {required String filePath}) async {
 
     // Creates a reference to file
     final imageRef = storageRef.child(filePath);
 
     try {
-      return imageRef.putFile(file); //uploads
+      return await imageRef.putFile(file); //uploads
 
     } on FirebaseException catch (e) {
       print("FirebaseException: $e");
