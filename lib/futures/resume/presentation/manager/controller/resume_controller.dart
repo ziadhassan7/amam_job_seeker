@@ -1,16 +1,20 @@
 import 'dart:io';
-import 'package:amam_job_seeker_assessment/core/firebase/real_time/database_client.dart';
 import 'package:amam_job_seeker_assessment/core/utils/file_helper.dart';
+import 'package:amam_job_seeker_assessment/futures/profile/data/repository/profile_repo.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/data/repository/resume_firebase_crud.dart';
+import 'package:amam_job_seeker_assessment/futures/resume/presentation/manager/state_manager/upload_failed_provider.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import '../../../../core/firebase/firebase_auth/auth.dart';
-import '../../data/repository/resume_repo.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../../core/firebase/firebase_auth/auth.dart';
+import '../../../data/repository/resume_repo.dart';
 
 class ResumeController {
 
+  ResumeController(this.ref);
+  final WidgetRef ref;
 
-  static Future pickFileAndUploadCv() async {
+  Future pickFileAndUploadCv() async {
 
     // Pick File
     PlatformFile? pickedFile = await FileHelper.pickFiles();
@@ -32,7 +36,7 @@ class ResumeController {
   }
 
 
-  static void _storeUserDataFromResume(File file) async {
+  void _storeUserDataFromResume(File file) async {
     // Upload File
     String? resumeLink = await _uploadResume(file);
 
@@ -46,12 +50,12 @@ class ResumeController {
         //store user data in firebase
         data != null
           ? _storeUserProfile(data)
-          : _handeException();
+          : handeException();
 
       });
 
     } else {
-      _handeException();
+      handeException();
     }
   }
 
@@ -78,12 +82,12 @@ class ResumeController {
 
   //store data in realtime_database
   static _storeUserProfile(Map data) async {
-    DatabaseClient.add(data);
+    ProfileRepo.addProfile(data, Auth().currentUser!.uid);
   }
 
 
-  static _handeException(){
+  handeException(){
     //Exception dialog
-    //... todo
+   ref.read(uploadFailedProvider.notifier).show();
   }
 }
