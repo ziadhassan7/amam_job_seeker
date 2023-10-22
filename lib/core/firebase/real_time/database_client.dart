@@ -30,21 +30,10 @@ class DatabaseClient {
   }
 
   //get
-  //this getter is slower than getOnce
-  static Future<Object?> getRealTime({String? dataPath}) async {
+  static Stream<DatabaseEvent> getRealTime({String? dataPath}) {
     DatabaseReference ref = _database.ref(dataPath);
 
-    //wait for listener
-    final Completer<Object?> completer = Completer<Object?>();
-
-    //Listen to value , you can return (ref.onValue) as Stream
-    ref.onValue.listen((DatabaseEvent event) {
-      Object? data = event.snapshot.value;
-
-      completer.complete(data);
-    });
-
-    return await completer.future;
+    return ref.onValue; //get stream
   }
 
   static Future<Object?> getOnce({String? dataPath}) async {
