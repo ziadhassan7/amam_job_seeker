@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:typed_data';
 import 'package:amam_job_seeker_assessment/core/utils/file_helper.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/data/repository/profile_repo.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/data/repository/resume_firebase_crud.dart';
@@ -21,15 +21,14 @@ class ResumeController {
     PlatformFile? pickedFile = await FileHelper.pickFiles();
 
     if (pickedFile != null) {
-      String? pickedFilePath = pickedFile.path;
+      Uint8List? pickedFileByte = pickedFile.bytes; //we use bytes to work in web
 
-      if(pickedFilePath != null) {
-        File file = File(pickedFile.path!);
+      if(pickedFileByte != null) {
 
         //If user is logged in
         if(Auth().currentUser != null){
           try{
-            _storeUserDataFromResume(file);
+            _storeUserDataFromResume(pickedFileByte);
 
           }catch (e){
             handleException();
@@ -41,7 +40,7 @@ class ResumeController {
   }
 
 
-  void _storeUserDataFromResume(File file) async {
+  void _storeUserDataFromResume(Uint8List file) async {
     // Upload File
     String? resumeLink = await _uploadResume(file);
 
@@ -63,7 +62,7 @@ class ResumeController {
 
   //upload resume to Firebase Storage
   //get file url
-  Future<String?> _uploadResume(File file) async {
+  Future<String?> _uploadResume(Uint8List file) async {
     //start loading widget
     UploadStatusController.triggerLoading(ref);
     //upload...

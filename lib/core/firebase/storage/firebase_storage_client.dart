@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:typed_data';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class FirebaseStorageClient {
@@ -10,13 +10,13 @@ class FirebaseStorageClient {
 
 
   /// Upload File
-  Future<TaskSnapshot?> uploadFile(File file, {required String filePath}) async {
+  Future<TaskSnapshot?> uploadFile(Uint8List file, {required String filePath}) async {
 
     // Creates a reference to file
     final imageRef = storageRef.child(filePath);
 
     try {
-      return await imageRef.putFile(file); //uploads
+      return await imageRef.putData(file); //uploads (Note: We can use putFile - I used putData, cuz I had to return Unit8List from FilePicker to work with web)
 
     } on FirebaseException catch (e) {
       print("FirebaseException: $e");
