@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'border.dart';
 
 class CustomDecoration extends BoxDecoration {
