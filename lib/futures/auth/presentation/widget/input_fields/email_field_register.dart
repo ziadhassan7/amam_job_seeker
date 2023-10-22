@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../../../../app_common_widgets/input_field/input_field.dart';
 import '../../manager/controller/input_controller.dart';
 
-class EmailFieldLogin extends StatelessWidget {
-  const EmailFieldLogin({super.key});
+class EmailFieldRegister extends StatelessWidget {
+  const EmailFieldRegister({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class EmailFieldLogin extends StatelessWidget {
       label: "Email",
       isPassword: false,
       keyboardType: TextInputType.emailAddress,
-      textController: InputController.email,
+      textController: InputController.email_register,
       formKey: InputController.emailFormKey_register,
       validator: InputController.validator,
     );

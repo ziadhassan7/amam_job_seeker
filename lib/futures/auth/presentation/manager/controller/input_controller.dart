@@ -5,9 +5,12 @@ class InputController{
   // Controllers
   static TextEditingController firstName = TextEditingController();
   static TextEditingController lastName = TextEditingController();
-  static TextEditingController email = TextEditingController();
-  static TextEditingController password = TextEditingController();
+  static TextEditingController email_register = TextEditingController();
+  static TextEditingController password_register = TextEditingController();
   static TextEditingController rePassword = TextEditingController();
+
+  static TextEditingController email_login = TextEditingController();
+  static TextEditingController password_login = TextEditingController();
 
 
   //Form Keys
@@ -31,7 +34,7 @@ class InputController{
 
   static String? rePasswordValidator(String? value){
     if (value == null || value.isEmpty
-        || (password.text != rePassword.text)) {
+        || (password_register.text != rePassword.text)) {
       return "Password is not the same";
     }
     return null;

@@ -14,8 +14,8 @@ class AuthController {
   Future<bool> login() async {
     try {
       await Auth().login(
-          email: InputController.email.text,
-          password: InputController.password.text);
+          email: InputController.email_login.text,
+          password: InputController.password_login.text);
 
       return true;
 
@@ -29,8 +29,8 @@ class AuthController {
     try {
       await Auth().registerUser(
           name: "${InputController.firstName.text} ${InputController.lastName.text}",
-          email: InputController.email.text,
-          password: InputController.password.text);
+          email: InputController.email_register.text,
+          password: InputController.password_register.text);
 
       return true;
 
@@ -42,9 +42,7 @@ class AuthController {
 
   static Future<bool> logout() async {
     try {
-      await Auth().logout(
-          email: InputController.email.text,
-          password: InputController.password.text);
+      await Auth().logout();
 
       return true;
 

@@ -29,9 +29,7 @@ class Auth {
   }
 
   //Logout
-  Future<void> logout({
-    required String email,
-    required String password}) async {
+  Future<void> logout() async {
 
     await _firebaseAuth.signOut();
   }
