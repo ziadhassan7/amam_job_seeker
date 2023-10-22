@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_database/firebase_database.dart';
 
 
@@ -28,17 +30,21 @@ class DatabaseClient {
   }
 
   //get
-  static Object? getRealTime({String? dataPath}){
+  //this getter is slower than getOnce
+  static Future<Object?> getRealTime({String? dataPath}) async {
     DatabaseReference ref = _database.ref(dataPath);
 
-    Object? data;
+    //wait for listener
+    final Completer<Object?> completer = Completer<Object?>();
 
     //Listen to value , you can return (ref.onValue) as Stream
     ref.onValue.listen((DatabaseEvent event) {
-      data = event.snapshot.value;
+      Object? data = event.snapshot.value;
+
+      completer.complete(data);
     });
 
-    return data;
+    return await completer.future;
   }
 
   static Future<Object?> getOnce({String? dataPath}) async {
