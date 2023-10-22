@@ -40,9 +40,6 @@ class ResumeRepo {
   // Get resume data from link
   static Future<Map?> parseUrlResume({required String resumeUrl}) async {
 
-
-    Log.p(resumeUrl,);
-
     try {
       Response response = await _dio.post(
         urlEndpoint,

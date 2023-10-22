@@ -9,10 +9,13 @@ enum ProfileException {
 
 class ProfileRepo {
 
+  ///Add
   static addProfile(Map data, String userId){
     DatabaseClient.add(jsonEncode(data), dataPath: "$userId/jsonData");
   }
 
+  ///Get
+  //get once
   static Future<Object> getProfile(String userId) async {
 
     final data=  await DatabaseClient.getOnce(dataPath: "$userId/jsonData");
@@ -25,7 +28,8 @@ class ProfileRepo {
     }
   }
 
-  static getProfileData(Object data){
+  //get data from model
+  static ProfileModelData? getProfileData(Object data){
     ProfileModel model = ProfileModel.fromJson(jsonDecode(data.toString()));
 
     //Get data from results
@@ -33,5 +37,9 @@ class ProfileRepo {
     return profileData;
   }
 
+  //get stream
+  static getStreamProfile(String userId) {
+    return DatabaseClient.getRealTime(dataPath: "$userId/jsonData");
+  }
 
 }

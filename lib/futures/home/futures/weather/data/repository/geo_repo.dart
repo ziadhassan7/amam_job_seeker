@@ -2,18 +2,19 @@ import 'package:dio/dio.dart';
 import '../../../../../../core/api/api_provider.dart';
 import '../../../../../../core/api/constanst/api_key.dart';
 import '../../../../../../core/api/constanst/endpoints.dart';
+import '../../../../../../core/custom_log.dart';
 import '../model/geo_model.dart';
 
 class GeoRepo {
 
   /// Use Weather Api
-  DioClient dio = DioClient(openWeatherBaseUrl);
+  static final DioClient _dio = DioClient(openWeatherBaseUrl);
 
   // Get Today's weather from location
-  Future<GeoModel> getCoordinates({required String cityName}) async {
+  static Future<GeoModel> getCoordinates({required String cityName}) async {
 
     try {
-      Response response = await dio.get(
+      Response response = await _dio.get(
           geoEndpoint,
           queryParameters: {
             "appid": openWeatherApiKey,
@@ -25,7 +26,7 @@ class GeoRepo {
       return GeoModel.fromJson(data.first); //parse json from list [index: 0]
 
     } catch (e) {
-      print("Error in code: Dio $e");
+      Log.p("Error in code: Dio $e");
       rethrow;
     }
   }
