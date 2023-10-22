@@ -1,7 +1,7 @@
-import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/info_box/info_box.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/presentation/widgets/box_title.dart';
 import 'package:flutter/material.dart';
 import '../../../data/model/profile_model_data.dart';
+import 'info_row.dart';
 
 class EducationBox extends StatelessWidget {
   const EducationBox({super.key, required this.data});
@@ -16,16 +16,8 @@ class EducationBox extends StatelessWidget {
       children: [
         const BoxTitle("Education"),
 
-
-        InfoBox(
-            titles: const [
-              "Institution",
-              "Education",
-            ],
-            values: [
-              getEducationInstitution(),
-              getEducation(),
-            ]),
+        InfoRow("Institution", getEducationInstitution()),
+        InfoRow("Education", getEducation()),
 
       ],
     );

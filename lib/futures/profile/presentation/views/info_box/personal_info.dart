@@ -1,4 +1,4 @@
-import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/info_box/info_box.dart';
+import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/info_box/info_row.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/presentation/widgets/box_title.dart';
 import 'package:flutter/material.dart';
 import '../../../data/model/profile_model_data.dart';
@@ -17,19 +17,10 @@ class PersonalInfoBox extends StatelessWidget {
         const BoxTitle("Personal Info"),
 
 
-        InfoBox(
-          titles: const [
-            "Full Name",
-            "Email",
-            "Phone",
-            "City"
-          ],
-          values: [
-            getFullName(),
-            getEmail(),
-            getPhone(),
-            getCity()
-          ]),
+        InfoRow("Full Name", getFullName()),
+        InfoRow("Email", getEmail()),
+        InfoRow("Phone", getPhone()),
+        InfoRow("City", getCity()),
 
       ],
     );

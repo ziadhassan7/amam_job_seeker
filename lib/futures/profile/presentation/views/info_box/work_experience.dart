@@ -1,4 +1,4 @@
-import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/info_box/info_box.dart';
+import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/info_box/info_row.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/presentation/widgets/box_title.dart';
 import 'package:flutter/material.dart';
 import '../../../data/model/profile_model_data.dart';
@@ -16,18 +16,9 @@ class WorkExperienceBox extends StatelessWidget {
       children: [
         const BoxTitle("Work Experience"),
 
-
-        InfoBox(
-            titles: const [
-              "Job Title",
-              "Employer",
-              "Description",
-            ],
-            values: [
-              getJobTitle(),
-              getEmployer(),
-              getDescription(),
-            ]),
+        InfoRow("Institution", getJobTitle()),
+        InfoRow("Employer", getEmployer()),
+        InfoRow("Description", getDescription()),
 
       ],
     );

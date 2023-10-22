@@ -17,6 +17,7 @@ class DataInfo extends StatelessWidget {
         size: 14,
         weight: FontWeight.bold,
         fontFamily: FontFamily.roboto,
+        textAlign: TextAlign.start,
       ),
     );
   }
