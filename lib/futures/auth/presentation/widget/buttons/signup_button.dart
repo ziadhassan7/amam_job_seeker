@@ -17,7 +17,7 @@ class SignUpButton extends ConsumerWidget {
         label: "Sign Up",
         onPressed: () async {
           if(InputController.validateForRegister()){
-            bool isRegistered = await authController.login();
+            bool isRegistered = await authController.register();
 
             if (isRegistered) {
               if (context.mounted) AppRouter.navigateTo(context, const ResumePage());
