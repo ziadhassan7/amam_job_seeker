@@ -24,7 +24,7 @@ class ProfilePage extends StatelessWidget {
       appBar: AdaptiveAppBar(
           context,
           title: "Your Profile",
-          leadingFunction: () => AppRouter.navigateTo(context, const HomePage())
+          leadingFunction: () => AppRouter.navigateTo(context, const HomePage(), isReplace: true)
       ).getWidget(),
 
 

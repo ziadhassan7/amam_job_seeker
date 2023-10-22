@@ -27,7 +27,7 @@ class ResumePage extends ConsumerWidget {
       appBar: AdaptiveAppBar(
           context,
           title: "Upload your CV",
-          leadingFunction: () => AppRouter.navigateTo(context, const HomePage())
+          leadingFunction: () => AppRouter.navigateTo(context, const HomePage(), isReplace: true)
       ).getWidget(),
 
 
