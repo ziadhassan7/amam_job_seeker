@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../app_common_widgets/text_view/text_view.dart';
+import '../../../app_common_widgets/text_view/text_view.dart';
 
 class WeatherText extends StatelessWidget {
   static const String _defaultText = "Weather Today";

@@ -1,9 +1,9 @@
-import 'package:amam_job_seeker_assessment/futures/home/futures/weather/data/model/weather_model.dart';
-import 'package:amam_job_seeker_assessment/futures/home/futures/weather/presentation/manager/weather_controller.dart';
-import 'package:amam_job_seeker_assessment/futures/home/futures/weather/presentation/views/sub/stamp_weather.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/data/model/profile_model_data.dart';
+import 'package:amam_job_seeker_assessment/futures/weather/presentation/views/sub/stamp_weather.dart';
 import 'package:flutter/material.dart';
-import '../../../../../../profile/data/repository/profile_repo.dart';
+import '../../../../profile/data/repository/profile_repo.dart';
+import '../../../data/model/weather_model.dart';
+import '../../manager/weather_controller.dart';
 import 'base_weather_widget.dart';
 
 

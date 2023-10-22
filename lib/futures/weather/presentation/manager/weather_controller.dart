@@ -1,5 +1,5 @@
-import '../../../../../profile/data/model/profile_model_data.dart';
-import '../../../../../profile/data/repository/profile_repo.dart';
+import '../../../profile/data/model/profile_model_data.dart';
+import '../../../profile/data/repository/profile_repo.dart';
 import '../../data/model/geo_model.dart';
 import '../../data/model/weather_model.dart';
 import '../../data/repository/geo_repo.dart';
