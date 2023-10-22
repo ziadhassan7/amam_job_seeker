@@ -1,8 +1,8 @@
 import 'package:amam_job_seeker_assessment/core/app_router.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/presentation/pages/resume_page.dart';
 import 'package:flutter/material.dart';
-import '../../../../app_common_widgets/dialoq_widget.dart';
-import '../../../../app_common_widgets/text_view/text_view.dart';
+import '../../../app_common_widgets/dialoq_widget.dart';
+import '../../../app_common_widgets/text_view/text_view.dart';
 
 class StreakInfoDialog {
 

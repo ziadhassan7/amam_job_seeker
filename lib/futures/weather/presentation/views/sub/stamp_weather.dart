@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../dialog/no_weather_dialog.dart';
+import '../../dialog/no_weather_dialog.dart';
 import 'base_weather_widget.dart';
 
 class StampWeather extends StatelessWidget {
