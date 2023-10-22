@@ -9,6 +9,7 @@ import '../../../../core/app_router.dart';
 import '../../../../core/firebase/firebase_auth/auth.dart';
 import '../../../../core/styles/adaptive_app_bar.dart';
 import '../../../../core/styles/padding.dart';
+import '../../../home/presentation/pages/home_page.dart';
 import '../../data/model/profile_model_data.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -20,7 +21,11 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AdaptiveAppBar(context, title: "Your Profile",).getWidget(),
+      appBar: AdaptiveAppBar(
+          context,
+          title: "Your Profile",
+          leadingFunction: () => AppRouter.navigateTo(context, const HomePage())
+      ).getWidget(),
 
 
       body: AdaptiveContainer(

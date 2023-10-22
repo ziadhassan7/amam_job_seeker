@@ -1,5 +1,7 @@
+import 'package:amam_job_seeker_assessment/core/app_router.dart';
 import 'package:amam_job_seeker_assessment/core/styles/adaptive_container.dart';
 import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view/text_view.dart';
+import 'package:amam_job_seeker_assessment/futures/home/presentation/pages/home_page.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/presentation/manager/controller/upload_status_controller.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/presentation/widgets/bottom_navigation_buttons.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/presentation/widgets/error_status_message.dart';
@@ -22,7 +24,12 @@ class ResumePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AdaptiveAppBar(context, title: "Upload your CV",).getWidget(),
+      appBar: AdaptiveAppBar(
+          context,
+          title: "Upload your CV",
+          leadingFunction: () => AppRouter.navigateTo(context, const HomePage())
+      ).getWidget(),
+
 
       body: AdaptiveContainer(
         maxWidth: _maxWidth,

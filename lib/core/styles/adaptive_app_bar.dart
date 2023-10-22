@@ -5,10 +5,11 @@ import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view/
 import 'package:flutter/material.dart';
 
 class AdaptiveAppBar{
-  const AdaptiveAppBar(this.context, {required this.title});
+  const AdaptiveAppBar(this.context, {required this.title, this.leadingFunction});
 
   final BuildContext context;
   final String title;
+  final Function()? leadingFunction;
 
   static double _scale = 1;
   static const double _fixedHeight = 60;
@@ -68,7 +69,7 @@ class AdaptiveAppBar{
               Padding(
                 padding: const CustomPadding(horizontal: 40),
                 child: InkWell(
-                    onTap: ()=> Navigator.pop(context),
+                    onTap: leadingFunction ?? ()=> Navigator.pop(context),
                     child: leadingWidget),
               ),
 
