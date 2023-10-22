@@ -1,31 +1,36 @@
 import 'package:amam_job_seeker_assessment/core/app_router.dart';
+import 'package:amam_job_seeker_assessment/core/styles/padding.dart';
 import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view/text_view.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/manager/controller/auth_conroller.dart';
 import 'package:amam_job_seeker_assessment/futures/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
-import '../../../futures/weather/presentation/views/weather_widget.dart';
+import '../../../../weather/presentation/views/weather_widget.dart';
 
 class TopBarSigned extends StatelessWidget {
   const TopBarSigned({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
+    return Padding(
+      padding: const CustomPadding(horizontal: 8, vertical: 8),
 
-        const WeatherWidget(),
+      child: Row(
+        children: [
 
-        const Spacer(),
-        
-        TextButton(
-          child: const TextView("Sign Out"),
+          const WeatherWidget(),
 
-          onPressed: (){
-            AuthController.logout();
-            AppRouter.navigateTo(context, const HomePage(), isReplace: true);
-          },
-        )
-      ],
+          const Spacer(),
+
+          TextButton(
+            child: const TextView("Sign Out"),
+
+            onPressed: (){
+              AuthController.logout();
+              AppRouter.navigateTo(context, const HomePage(), isReplace: true);
+            },
+          )
+        ],
+      ),
     );
   }
 }
