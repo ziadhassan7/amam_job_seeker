@@ -1,14 +1,14 @@
 {
   "project_info": {
-    "project_number": "985387281127",
-    "firebase_url": "https://amam-job-seeking-68850-default-rtdb.firebaseio.com",
-    "project_id": "amam-job-seeking-68850",
-    "storage_bucket": "amam-job-seeking-68850.appspot.com"
+    "project_number": "651727377899",
+    "firebase_url": "https://amam-seek-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "amam-seek",
+    "storage_bucket": "amam-seek.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:985387281127:android:b8c945bb45ca04996e1042",
+        "mobilesdk_app_id": "1:651727377899:android:af45ff322c2761bfd175ae",
         "android_client_info": {
           "package_name": "com.ziad.amam_job_seeker_assessment"
         }
@@ -16,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBdeqAW2uQXA1zJnGS6snipBdPkMeyZiyk"
+          "current_key": "AIzaSyA7etP_Nkmx02kZNya802Wpf9fcnMDtUy0"
         }
       ],
       "services": {

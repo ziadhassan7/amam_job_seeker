@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:985387281127:ios:eb99adcb6ddafba86e1042",
-  "FIREBASE_PROJECT_ID": "amam-job-seeking-68850",
-  "GCM_SENDER_ID": "985387281127"
+  "GOOGLE_APP_ID": "1:651727377899:ios:cde1b63a80984ebbd175ae",
+  "FIREBASE_PROJECT_ID": "amam-seek",
+  "GCM_SENDER_ID": "651727377899"
 }
