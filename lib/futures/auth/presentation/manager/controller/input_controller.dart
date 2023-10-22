@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class InputController{
 
+  // Controllers
   static TextEditingController firstName = TextEditingController();
   static TextEditingController lastName = TextEditingController();
   static TextEditingController email = TextEditingController();
@@ -9,11 +10,16 @@ class InputController{
   static TextEditingController rePassword = TextEditingController();
 
 
+  //Form Keys
   static final GlobalKey<FormState> firstNameFormKey = GlobalKey<FormState>();
   static final GlobalKey<FormState> lastNameFormKey = GlobalKey<FormState>();
-  static final GlobalKey<FormState> emailFormKey = GlobalKey<FormState>();
-  static final GlobalKey<FormState> passwordFormKey = GlobalKey<FormState>();
+  static final GlobalKey<FormState> emailFormKey_register = GlobalKey<FormState>();
+  static final GlobalKey<FormState> passwordFormKey_register = GlobalKey<FormState>();
   static final GlobalKey<FormState> rePasswordFormKey = GlobalKey<FormState>();
+
+  static final GlobalKey<FormState> emailFormKey_login = GlobalKey<FormState>();
+  static final GlobalKey<FormState> passwordFormKey_login = GlobalKey<FormState>();
+
 
 
   static String? validator(String? value){
@@ -34,13 +40,13 @@ class InputController{
   static bool validateForRegister(){
     return firstNameFormKey.currentState!.validate()
         && lastNameFormKey.currentState!.validate()
-        && emailFormKey.currentState!.validate()
-        && passwordFormKey.currentState!.validate()
+        && emailFormKey_register.currentState!.validate()
+        && passwordFormKey_register.currentState!.validate()
         && rePasswordFormKey.currentState!.validate();
   }
 
   static bool validateForLogin(){
-    return emailFormKey.currentState!.validate()
-        && passwordFormKey.currentState!.validate();
+    return emailFormKey_login.currentState!.validate()
+        && passwordFormKey_login.currentState!.validate();
   }
 }

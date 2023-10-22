@@ -1,8 +1,8 @@
 import 'package:amam_job_seeker_assessment/core/styles/adaptive_container.dart';
-import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/email_field.dart';
+import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/login/email_field_login.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/error_text.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/change_auth_page_button/go_to_login_text.dart';
-import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/password_field.dart';
+import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/login/password_field_login.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/re_password_field.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/buttons/signup_button.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/user_name_field.dart';

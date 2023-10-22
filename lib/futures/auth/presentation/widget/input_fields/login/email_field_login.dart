@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../../app_common_widgets/input_field/input_field.dart';
-import '../../manager/controller/input_controller.dart';
+import '../../../../../app_common_widgets/input_field/input_field.dart';
+import '../../../manager/controller/input_controller.dart';
 
-class EmailFieldLogin extends StatelessWidget {
-  const EmailFieldLogin({super.key});
+class EmailField extends StatelessWidget {
+  const EmailField({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class EmailFieldLogin extends StatelessWidget {
       isPassword: false,
       keyboardType: TextInputType.emailAddress,
       textController: InputController.email,
-      formKey: InputController.emailFormKey_register,
+      formKey: InputController.emailFormKey_login, //you can't have duplicate keys
       validator: InputController.validator,
     );
   }
