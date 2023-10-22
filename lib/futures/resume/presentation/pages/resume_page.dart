@@ -10,6 +10,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/styles/adaptive_app_bar.dart';
 import '../../../app_common_widgets/custom_button.dart';
 import '../manager/controller/resume_controller.dart';
+import '../widgets/success_message.dart';
 
 class ResumePage extends ConsumerWidget {
   const ResumePage({super.key, this.isChange = false});
@@ -66,6 +67,7 @@ class ResumePage extends ConsumerWidget {
                     smallAlignmentSpace(),
 
                     const ErrorStatusMessage(),
+                    const SuccessMessage(),
                   ],
                 ),
               ),

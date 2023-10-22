@@ -20,6 +20,7 @@ class BottomNavigationButtons extends ConsumerWidget {
       children: [
         const Spacer(),
 
+        //Cancel Btn
         TextButton(
             onPressed: (){
               AppRouter.navigateTo(context, const HomePage());
@@ -33,15 +34,17 @@ class BottomNavigationButtons extends ConsumerWidget {
               },
             )),
 
+        //Next Btn
         CustomButton(
           label: "Next",
-          onPressed: isSuccess? ()=> nextFunction(context,) : null,
+          onPressed: isSuccess? ()=> nextFunction(context, ref) : null,
         )
       ],
     );
   }
 
-  void nextFunction(BuildContext context){
+  void nextFunction(BuildContext context, WidgetRef ref){
+    UploadStatusController.resetErrorMessage(ref); // to reset success and error status
     AppRouter.navigateTo(context, const ProfilePage());
   }
 }
