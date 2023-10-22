@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/styles/padding.dart';
-import '../../../app_common_widgets/text_view.dart';
+import '../../../app_common_widgets/text_view/text_view.dart';
 
 class DataInfo extends StatelessWidget {
   const DataInfo(this.text, {super.key});

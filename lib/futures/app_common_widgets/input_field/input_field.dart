@@ -1,6 +1,6 @@
 import 'package:amam_job_seeker_assessment/core/styles/app_colors.dart';
 import 'package:amam_job_seeker_assessment/core/styles/app_screen.dart';
-import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view.dart';
+import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view/text_view.dart';
 import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
@@ -71,7 +71,7 @@ class InputField extends StatelessWidget {
 
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(width: 3, color: AppColor.accentDark),
+                          borderSide: const BorderSide(width: 3, color: AppColor.accent),
                           borderRadius: BorderRadius.circular(5)),
 
                       border: OutlineInputBorder(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../app_common_widgets/input_field.dart';
+import '../../../../app_common_widgets/input_field/input_field.dart';
 import '../../manager/controller/input_controller.dart';
 
 class RePasswordField extends StatelessWidget {

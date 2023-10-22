@@ -3,7 +3,7 @@ import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/in
 import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/info_box/skills.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/info_box/work_experience.dart';
 import 'package:flutter/material.dart';
-import '../../../app_common_widgets/text_view.dart';
+import '../../../app_common_widgets/text_view/text_view.dart';
 import '../../data/model/profile_model_data.dart';
 
 

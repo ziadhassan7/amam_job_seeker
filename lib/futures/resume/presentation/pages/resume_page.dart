@@ -1,5 +1,5 @@
 import 'package:amam_job_seeker_assessment/core/styles/adaptive_container.dart';
-import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view.dart';
+import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view/text_view.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/presentation/manager/controller/upload_status_controller.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/presentation/widgets/bottom_navigation_buttons.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/presentation/widgets/error_status_message.dart';

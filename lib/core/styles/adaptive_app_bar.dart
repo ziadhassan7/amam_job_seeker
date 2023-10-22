@@ -1,7 +1,7 @@
 import 'package:amam_job_seeker_assessment/core/styles/app_screen.dart';
 import 'package:amam_job_seeker_assessment/core/styles/box_decoration.dart';
 import 'package:amam_job_seeker_assessment/core/styles/padding.dart';
-import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view.dart';
+import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view/text_view.dart';
 import 'package:flutter/material.dart';
 
 class AdaptiveAppBar{

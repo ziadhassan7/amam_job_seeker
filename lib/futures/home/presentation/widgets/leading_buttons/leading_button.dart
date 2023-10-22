@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../app_common_widgets/custom_button.dart';
-import '../../../../app_common_widgets/text_view.dart';
+import '../../../../app_common_widgets/text_view/text_view.dart';
 
 class LeadingButton extends StatelessWidget {
   final double scale;

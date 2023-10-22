@@ -4,7 +4,7 @@ import 'package:amam_job_seeker_assessment/futures/auth/presentation/pages/regis
 import 'package:flutter/material.dart';
 import '../../../../../core/styles/app_colors.dart';
 import '../../../../app_common_widgets/custom_button.dart';
-import '../../../../app_common_widgets/text_view.dart';
+import '../../../../app_common_widgets/text_view/text_view.dart';
 
 class TopBarNotSigned extends StatelessWidget {
   const TopBarNotSigned({super.key});

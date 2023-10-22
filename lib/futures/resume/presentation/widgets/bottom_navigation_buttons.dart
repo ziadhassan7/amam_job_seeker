@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/app_router.dart';
 import '../../../app_common_widgets/custom_button.dart';
-import '../../../app_common_widgets/text_view.dart';
+import '../../../app_common_widgets/text_view/text_view.dart';
 import '../../../home/presentation/pages/home_page.dart';
 import '../manager/controller/upload_status_controller.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../app_common_widgets/text_view.dart';
+import '../../../app_common_widgets/text_view/text_view.dart';
 
 class LeadingText extends StatelessWidget {
   const LeadingText({super.key, this.scale = 1});

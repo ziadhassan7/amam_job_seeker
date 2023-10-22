@@ -1,6 +1,6 @@
 import 'package:amam_job_seeker_assessment/core/styles/app_colors.dart';
 import 'package:amam_job_seeker_assessment/core/styles/padding.dart';
-import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view.dart';
+import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view/text_view.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {

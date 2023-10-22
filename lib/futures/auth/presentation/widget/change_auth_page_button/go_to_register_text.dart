@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../../core/app_router.dart';
-import '../../../../app_common_widgets/text_view.dart';
+import '../../../../app_common_widgets/text_view/text_view.dart';
 import '../../manager/state_manger/auth_message_provider.dart';
 import '../../pages/register_page.dart';
 
