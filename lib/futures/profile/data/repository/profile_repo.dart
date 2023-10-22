@@ -21,7 +21,7 @@ class ProfileRepo {
       return data;
 
     } else {
-      return ProfileException.noData;
+      return ProfileException.noData; //differentiate between null values and future loading (because null => loading)
     }
   }
 
