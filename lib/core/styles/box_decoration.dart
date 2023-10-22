@@ -25,16 +25,10 @@ class CustomDecoration extends BoxDecoration {
 
     borderRadius: BorderRadius.all(Radius.circular(radius)),
 
-    shape: isCircular? BoxShape.circle: BoxShape.rectangle,
+    shape: BoxShape.rectangle,
 
-  ) {
-
-    // This means that you can have either isCircular ==true (OR) radius !=0  (Not Both)
-    // You can either have (isCircular = true or radius > 0), both cannot violate the assert
-    assert(isCircular != true || radius == 0,
-    'Cannot provide both isCircular and radius'
-    );
+  );
 
   }
 
-}
+

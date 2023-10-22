@@ -71,7 +71,7 @@ class InputField extends StatelessWidget {
 
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(width: 3, color: AppColor.accent),
+                          borderSide: const BorderSide(width: 3, color: AppColor.accentDark),
                           borderRadius: BorderRadius.circular(5)),
 
                       border: OutlineInputBorder(

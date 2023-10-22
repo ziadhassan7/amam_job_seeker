@@ -2,7 +2,7 @@ import 'package:amam_job_seeker_assessment/core/styles/adaptive_container.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/pages/login_page.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/data/repository/profile_repo.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/no_data_view.dart';
-import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/user_info_view.dart';
+import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/profile_data_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/app_router.dart';
@@ -46,7 +46,7 @@ class ProfilePage extends StatelessWidget {
 
 
                       if(userInfo != null){
-                        return UserInfoView(data: userInfo,);
+                        return ProfileDataView(data: userInfo,);
 
                       } else {
                         return const NoDataView();
