@@ -10,6 +10,7 @@ class EmailField extends StatelessWidget {
     return InputField(
       label: "Email",
       isPassword: false,
+      keyboardType: TextInputType.emailAddress,
       textController: InputController.email,
       formKey: InputController.emailFormKey,
       validator: InputController.validator,

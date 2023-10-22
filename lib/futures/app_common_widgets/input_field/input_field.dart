@@ -12,6 +12,7 @@ class InputField extends StatelessWidget {
   final String? Function(String?)? validator;
   final GlobalKey<FormState>? formKey;
   final bool isExpanded;
+  final TextInputType? keyboardType;
 
   const InputField(
       {super.key,
@@ -22,7 +23,8 @@ class InputField extends StatelessWidget {
         required this.textController,
         this.validator,
         this.formKey,
-        this.isExpanded = false})
+        this.isExpanded = false,
+        this.keyboardType})
 
       : assert(validator == null || formKey != null,
         'Cannot have a validator without a formKey'
@@ -58,6 +60,7 @@ class InputField extends StatelessWidget {
                 key: formKey,
 
                 child: TextFormField(
+                    keyboardType: keyboardType,
                     expands: isExpanded ? true : false,
                     textAlignVertical: TextAlignVertical.top,
                     minLines: null,
