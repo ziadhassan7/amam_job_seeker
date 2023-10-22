@@ -17,6 +17,7 @@ class TextView extends StatelessWidget {
   final TextOverflow? overflow;
   final TextAlign? textAlign;
   final TextDirection? textDirection;
+  final double scale;
   final FontFamily? fontFamily;
   static FontFamily? defaultFontFamily;
 
@@ -32,6 +33,7 @@ class TextView extends StatelessWidget {
         this.overflow = TextOverflow.ellipsis,
         this.textAlign = TextAlign.center,
         this.textDirection,
+        this.scale = 1,
         this.fontFamily
       }) : super(key: key);
 
@@ -47,7 +49,7 @@ class TextView extends StatelessWidget {
         overflow: overflow,
 
         style: getTheme(
-            size: size,
+            size: (size!=null)? size!*scale : size,
             weight: weight,
             color: color,
           ),
