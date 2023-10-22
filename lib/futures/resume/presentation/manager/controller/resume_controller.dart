@@ -9,6 +9,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../../core/firebase/firebase_auth/auth.dart';
 import '../../../data/repository/resume_repo.dart';
+import '../state_manager/upload_loading_provider.dart';
 
 class ResumeController {
 
@@ -27,12 +28,7 @@ class ResumeController {
 
         //If user is logged in
         if(Auth().currentUser != null){
-          try{
-            _storeUserDataFromResume(pickedFileByte);
-
-          }catch (e){
-            handleException();
-          }
+          _storeUserDataFromResume(pickedFileByte);
         }
       }
     }
@@ -96,5 +92,6 @@ class ResumeController {
   handleException(){
     //Exception dialog
    ref.read(uploadFailedProvider.notifier).show();
+   ref.read(uploadLoadingProvider.notifier).done();
   }
 }

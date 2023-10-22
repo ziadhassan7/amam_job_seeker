@@ -10,6 +10,7 @@ class UploadStatusController {
     //reset - hide
     ref.read(uploadFailedProvider.notifier).hide();
     ref.read(uploadSuccessProvider.notifier).hide();
+    ref.read(uploadLoadingProvider.notifier).done();
   }
 
   static void triggerLoading(WidgetRef ref){
