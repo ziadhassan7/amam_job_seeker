@@ -1,41 +1,28 @@
-import 'package:amam_job_seeker_assessment/core/firebase/firebase_auth/auth.dart';
-import 'package:amam_job_seeker_assessment/futures/profile/data/repository/profile_repo.dart';
+import 'package:amam_job_seeker_assessment/futures/weather/presentation/manager/state_manager/location_weather_provider.dart';
 import 'package:amam_job_seeker_assessment/futures/weather/presentation/views/sub/info_weather.dart';
 import 'package:amam_job_seeker_assessment/futures/weather/presentation/views/sub/stamp_weather.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:location/location.dart';
 
-class WeatherWidget extends StatelessWidget {
+class WeatherWidget extends ConsumerWidget {
   const WeatherWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
 
-    String userId = "null";
+    return FutureBuilder<LocationData?>(
+        future: ref.watch(locationWeatherProvider),
+        builder: (context, snapshot) {
 
-    //get user id
-    if(Auth().currentUser != null){
-      userId = Auth().currentUser!.uid;
-    }
+          if(snapshot.hasData){
 
-    return StreamBuilder<DatabaseEvent>(
-      stream: ProfileRepo.getStreamProfile(userId),
-
-      builder: (context, AsyncSnapshot<DatabaseEvent> snapshot) {
-
-        if(snapshot.hasData){
-          Object? mainData = snapshot.data!.snapshot.value;
-          if(mainData != null){
-
-            return InfoWeather(data: mainData);
+            return InfoWeather(data: snapshot.data!);
 
           } else {
             return const StampWeather();
           }
-        } else {
-          return const StampWeather();
         }
-      }
     );
   }
 }

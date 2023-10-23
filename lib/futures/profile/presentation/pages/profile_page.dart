@@ -1,4 +1,3 @@
-import 'package:amam_job_seeker_assessment/core/styles/adaptive_container.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/pages/login_page.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/data/repository/profile_repo.dart';
 import 'package:amam_job_seeker_assessment/futures/profile/presentation/views/no_data_view.dart';
@@ -7,8 +6,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/app_router.dart';
 import '../../../../core/firebase/firebase_auth/auth.dart';
-import '../../../../core/styles/adaptive_app_bar.dart';
+import '../../../app_common_widgets/adaptive_app_bar.dart';
 import '../../../../core/styles/padding.dart';
+import '../../../app_common_widgets/adaptive_container.dart';
 import '../../../home/presentation/pages/home_page.dart';
 import '../../data/model/profile_model_data.dart';
 

@@ -1,36 +1,38 @@
-import 'package:amam_job_seeker_assessment/futures/profile/data/model/profile_model_data.dart';
 import 'package:amam_job_seeker_assessment/futures/weather/presentation/views/sub/stamp_weather.dart';
 import 'package:flutter/material.dart';
-import '../../../../profile/data/repository/profile_repo.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:location/location.dart';
 import '../../../data/model/weather_model.dart';
-import '../../manager/weather_controller.dart';
+import '../../manager/controllers/weather_controller.dart';
 import 'base_weather_widget.dart';
 
 
-class InfoWeather extends StatelessWidget {
+class InfoWeather extends ConsumerWidget {
   const InfoWeather({super.key, required this.data});
 
-  final Object data;
+  final LocationData data;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
 
-    return FutureBuilder(
+    return FutureBuilder<WeatherModel?>(
         future: WeatherController.getCurrentWeather(data),
 
         builder: (context, AsyncSnapshot snapshot){
 
           if(snapshot.hasData){
+
             //weather
             WeatherModel weather = snapshot.data;
-            //temp , condition
+            //temp , condition , city
             String? temp = weather.main?.temp.toString();
             String? condition = weather.weather?.first.main;
+            String? city = weather.name;
 
             return BaseWeatherWidget(
               asset: getWeatherIcon(condition),
               text: temp,
-              city: getCity(data),
+              city: city,
             );
 
           } else {
@@ -61,19 +63,6 @@ class InfoWeather extends StatelessWidget {
       default:
         return "assets/weather/clouds.svg";
     }
-  }
-
-
-  String? getCity(Object data){
-    final ProfileModelData? userInfo = ProfileRepo.getProfileData(data);
-
-    String? city = userInfo?.address?.city;
-
-    if(city != null) {
-      return city;
-    }
-
-    return null;
   }
 
 }

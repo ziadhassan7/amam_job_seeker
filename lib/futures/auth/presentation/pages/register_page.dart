@@ -1,4 +1,3 @@
-import 'package:amam_job_seeker_assessment/core/styles/adaptive_container.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/email_field_register.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/error_text.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/change_auth_page_button/go_to_login_text.dart';
@@ -7,6 +6,7 @@ import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/inpu
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/buttons/signup_button.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/user_name_field.dart';
 import 'package:flutter/material.dart';
+import '../../../app_common_widgets/adaptive_container.dart';
 import '../widget/leading_text.dart';
 
 

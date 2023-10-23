@@ -11,7 +11,7 @@ class WeatherRepo {
   static final DioClient _dio = DioClient(openWeatherBaseUrl);
 
   // Get Today's weather from location
-  static Future<WeatherModel> getCurrentWeather({required String latitude, required String longitude}) async {
+  static Future<WeatherModel> getCurrentWeather({required double latitude, required double longitude}) async {
 
     try {
       Response response = await _dio.get(

@@ -1,16 +1,17 @@
+import 'package:amam_job_seeker_assessment/futures/weather/presentation/manager/state_manager/location_weather_provider.dart';
 import 'package:flutter/material.dart';
-import '../../dialog/no_weather_dialog.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'base_weather_widget.dart';
 
-class StampWeather extends StatelessWidget {
+class StampWeather extends ConsumerWidget {
   const StampWeather({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return InkWell(
 
       onTap: (){
-        StreakInfoDialog(context);
+        ref.read(locationWeatherProvider.notifier).show();
       },
 
       child: const BaseWeatherWidget(

@@ -1,5 +1,4 @@
 import 'package:amam_job_seeker_assessment/core/app_router.dart';
-import 'package:amam_job_seeker_assessment/core/styles/adaptive_container.dart';
 import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view/text_view.dart';
 import 'package:amam_job_seeker_assessment/futures/home/presentation/pages/home_page.dart';
 import 'package:amam_job_seeker_assessment/futures/resume/presentation/manager/controller/upload_status_controller.dart';
@@ -9,7 +8,8 @@ import 'package:amam_job_seeker_assessment/futures/resume/presentation/widgets/l
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../../core/styles/adaptive_app_bar.dart';
+import '../../../app_common_widgets/adaptive_app_bar.dart';
+import '../../../app_common_widgets/adaptive_container.dart';
 import '../../../app_common_widgets/custom_button.dart';
 import '../manager/controller/resume_controller.dart';
 import '../widgets/success_message.dart';

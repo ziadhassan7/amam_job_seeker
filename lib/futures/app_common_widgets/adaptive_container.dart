@@ -1,8 +1,8 @@
 import 'package:amam_job_seeker_assessment/core/styles/padding.dart';
 import 'package:flutter/material.dart';
-import 'app_colors.dart';
-import 'app_screen.dart';
-import 'box_decoration.dart';
+import '../../core/styles/app_colors.dart';
+import '../../core/styles/app_screen.dart';
+import '../../core/styles/box_decoration.dart';
 
 class AdaptiveContainer extends StatelessWidget {
   const AdaptiveContainer(

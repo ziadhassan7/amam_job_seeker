@@ -51,6 +51,33 @@ class AdaptiveAppBar{
     );
   }
 
+
+  ///Widgets
+  //desktop leading widget
+  Widget desktopLeadingWidget(){
+    return Container(
+      padding: const CustomPadding(vertical: 14, horizontal: 18),
+
+      decoration: CustomDecoration(
+        radius: 14,
+        borderWidth: 1, borderColor: Colors.black,
+      ),
+
+      child: const Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.close_rounded),
+
+          SizedBox(width: 10,),
+
+          TextView("Cancel", size: 14,)
+        ],),
+    );
+  }
+
+  //mobile leading widget
+  Widget mobileLeadingWidget() => const Icon(Icons.close_rounded);
+
   ///View
   //Your app bar widget
   AppBar customAppBar(BuildContext context, {required Widget leadingWidget,}){
@@ -81,32 +108,5 @@ class AdaptiveAppBar{
       ),
     );
   }
-
-
-  ///Widgets
-  //desktop leading widget
-  Widget desktopLeadingWidget(){
-    return Container(
-      padding: const CustomPadding(vertical: 14, horizontal: 18),
-
-      decoration: CustomDecoration(
-        radius: 14,
-        borderWidth: 1, borderColor: Colors.black,
-      ),
-
-      child: const Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.close_rounded),
-
-          SizedBox(width: 10,),
-
-          TextView("Cancel", size: 14,)
-        ],),
-    );
-  }
-
-  //mobile leading widget
-  Widget mobileLeadingWidget() => const Icon(Icons.close_rounded);
 
 }

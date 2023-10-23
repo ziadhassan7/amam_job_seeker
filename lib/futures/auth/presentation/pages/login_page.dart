@@ -1,4 +1,3 @@
-import 'package:amam_job_seeker_assessment/core/styles/adaptive_container.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/buttons/login_button.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/change_auth_page_button/go_to_register_text.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/error_text.dart';
@@ -6,6 +5,7 @@ import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/inpu
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/input_fields/login/password_field_login.dart';
 import 'package:amam_job_seeker_assessment/futures/auth/presentation/widget/leading_text.dart';
 import 'package:flutter/material.dart';
+import '../../../app_common_widgets/adaptive_container.dart';
 
 
 class LoginPage extends StatelessWidget {
