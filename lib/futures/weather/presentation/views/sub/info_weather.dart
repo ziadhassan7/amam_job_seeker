@@ -1,4 +1,4 @@
-import 'package:amam_job_seeker_assessment/core/styles/padding.dart';
+import 'package:amam_job_seeker_assessment/futures/weather/presentation/widgets/weather_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
@@ -37,7 +37,7 @@ class InfoWeather extends ConsumerWidget {
 
           } else {
 
-            return _getLoadingWidget();
+            return const WeatherLoading();
           }
         }
     );
@@ -63,19 +63,6 @@ class InfoWeather extends ConsumerWidget {
       default:
         return "assets/weather/clouds.svg";
     }
-  }
-
-
-  static _getLoadingWidget(){
-    return const Padding(
-      padding: CustomPadding(horizontal: 10),
-
-      child: SizedBox(
-        width: 10,
-        height: 10,
-        child: CircularProgressIndicator(strokeWidth: 3,)
-      )
-    );
   }
 
 }

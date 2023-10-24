@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import '../../../../../../core/api/api_provider.dart';
 import '../../../../../../core/api/constanst/api_key.dart';
@@ -25,8 +23,6 @@ class WeatherRepo {
             "units": "metric",
           }
       );
-
-      Log("fs", jsonEncode(response.data));
 
       return WeatherModel.fromJson(response.data);
 
