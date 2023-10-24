@@ -1,7 +1,7 @@
-import 'package:amam_job_seeker_assessment/futures/weather/presentation/views/sub/stamp_weather.dart';
+import 'package:amam_job_seeker_assessment/core/styles/padding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:location/location.dart';
+import 'package:geolocator/geolocator.dart';
 import '../../../data/model/weather_model.dart';
 import '../../manager/controllers/weather_controller.dart';
 import 'base_weather_widget.dart';
@@ -10,7 +10,7 @@ import 'base_weather_widget.dart';
 class InfoWeather extends ConsumerWidget {
   const InfoWeather({super.key, required this.data});
 
-  final LocationData data;
+  final Position data;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -37,7 +37,7 @@ class InfoWeather extends ConsumerWidget {
 
           } else {
 
-            return const StampWeather();
+            return _getLoadingWidget();
           }
         }
     );
@@ -63,6 +63,19 @@ class InfoWeather extends ConsumerWidget {
       default:
         return "assets/weather/clouds.svg";
     }
+  }
+
+
+  static _getLoadingWidget(){
+    return const Padding(
+      padding: CustomPadding(horizontal: 10),
+
+      child: SizedBox(
+        width: 10,
+        height: 10,
+        child: CircularProgressIndicator(strokeWidth: 3,)
+      )
+    );
   }
 
 }

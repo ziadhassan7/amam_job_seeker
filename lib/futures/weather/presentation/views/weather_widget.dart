@@ -3,7 +3,8 @@ import 'package:amam_job_seeker_assessment/futures/weather/presentation/views/su
 import 'package:amam_job_seeker_assessment/futures/weather/presentation/views/sub/stamp_weather.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:location/location.dart';
+import 'package:geolocator/geolocator.dart';
+
 
 class WeatherWidget extends ConsumerWidget {
   const WeatherWidget({super.key});
@@ -11,17 +12,13 @@ class WeatherWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
-    return FutureBuilder<LocationData?>(
+    return FutureBuilder<Position?>(
         future: ref.watch(locationWeatherProvider),
         builder: (context, snapshot) {
 
-          if(snapshot.hasData){
-
-            return InfoWeather(data: snapshot.data!);
-
-          } else {
-            return const StampWeather();
-          }
+          return (snapshot.hasData)
+            ? InfoWeather(data: snapshot.data!)
+            : const StampWeather();
         }
     );
   }

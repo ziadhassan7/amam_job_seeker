@@ -1,13 +1,13 @@
 import 'package:amam_job_seeker_assessment/futures/weather/presentation/manager/controllers/location_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:location/location.dart';
+import 'package:geolocator/geolocator.dart';
 
-final locationWeatherProvider = StateNotifierProvider<LocationWeatherProvider, Future<LocationData?>>((ref) {
+final locationWeatherProvider = StateNotifierProvider<LocationWeatherProvider, Future<Position?>>((ref) {
 
   return LocationWeatherProvider();
 });
 
-class LocationWeatherProvider extends StateNotifier<Future<LocationData?>>{
+class LocationWeatherProvider extends StateNotifier<Future<Position?>>{
 
   LocationWeatherProvider() : super(Future(() => null)); //default
 

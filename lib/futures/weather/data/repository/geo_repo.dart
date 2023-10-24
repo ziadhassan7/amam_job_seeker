@@ -26,7 +26,7 @@ class GeoRepo {
       return GeoModel.fromJson(data.first); //parse json from list [index: 0]
 
     } catch (e) {
-      Log.p("Error in code: Dio $e");
+      Log("GeoRepo", e);
       rethrow;
     }
   }

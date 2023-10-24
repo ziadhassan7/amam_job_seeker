@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import '../../../../../../core/api/api_provider.dart';
 import '../../../../../../core/api/constanst/api_key.dart';
@@ -11,7 +13,7 @@ class WeatherRepo {
   static final DioClient _dio = DioClient(openWeatherBaseUrl);
 
   // Get Today's weather from location
-  static Future<WeatherModel> getCurrentWeather({required double latitude, required double longitude}) async {
+  static Future<WeatherModel> getCurrentWeather({required num latitude, required num longitude}) async {
 
     try {
       Response response = await _dio.get(
@@ -24,10 +26,12 @@ class WeatherRepo {
           }
       );
 
+      Log("fs", jsonEncode(response.data));
+
       return WeatherModel.fromJson(response.data);
 
     } catch (e) {
-      Log.p("Authorization error");
+      Log("Weather Repo", e);
       rethrow;
     }
   }

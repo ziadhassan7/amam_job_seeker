@@ -1,37 +1,38 @@
-import 'package:location/location.dart';
-
+import 'package:geolocator/geolocator.dart';
 
 class LocationController {
 
-  static final Location _location = Location();
 
-
-  static Future<LocationData?> getCurrentLocation() async {
+  static Future<Position> getCurrentLocation() async {
 
     bool serviceEnabled;
-    PermissionStatus permissionGranted;
+    LocationPermission permission;
 
-    //Show an alert dialog to request the user to activate the Location Service
-    serviceEnabled = await _location.serviceEnabled();
+    // Test if location services are enabled.
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      serviceEnabled = await _location.requestService();
-      if (!serviceEnabled) {
-        return null; //denied
+      return Future.error('Location services are disabled.');
+    }
+
+    // Check for Permissions
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
       }
     }
 
-    //Request Location Permission
-    permissionGranted = await _location.hasPermission();
-    if (permissionGranted == PermissionStatus.denied) {
-      permissionGranted = await _location.requestPermission();
-      if (permissionGranted != PermissionStatus.granted) {
-        return null;
-      }
+    if (permission == LocationPermission.deniedForever) {
+      // Permissions are denied forever, handle appropriately.
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
     }
 
 
-    //Get Location coordinates
-    return await _location.getLocation();
+    // When we reach here, permissions are granted, and we can
+    // Get User Location
+    return await Geolocator.getCurrentPosition();
   }
 
 
