@@ -1,16 +1,9 @@
-# amam_job_seeker_assessment
+# amam_job_seeker
 
-A new Flutter project.
+Web Application with Adaptive Layout
+Upload user Cv, and fetch data from it.
 
-## Getting Started
+## UI Showcase 
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Home Page (before user login)
+![Home (before sign-in)](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/0404a611-78bb-445e-8e7e-535e92c6613a)
