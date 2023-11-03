@@ -20,3 +20,10 @@ Login
 Register 
 ![register](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/2c2caaeb-3eb4-4fd8-a7f1-1f0c595a6bb5)
 
+------------------------------------------------------
+
+Upload your Cv
+![Upload Cv](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/70bd2acb-c3bb-4188-8b9d-3a06a54023a9)
+
+Profile Page
+![Profile Page](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/5e6713d9-6345-466e-9803-348ca3c14c47)
