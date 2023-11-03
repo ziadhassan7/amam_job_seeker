@@ -14,9 +14,9 @@ Home Page (after user login)
 ------------------------------------------------------
 
 Login
-![login](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/31c2fe6c-9c2d-4dbb-81b5-9566fd1980d7)
+![login](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/0494b3fb-586e-442e-b530-a096d623240d)
 
 
 Register 
-![register](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/1c5f67f6-c251-45f9-ae9b-5ef8436bf1f9)
+![register](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/2c2caaeb-3eb4-4fd8-a7f1-1f0c595a6bb5)
 
