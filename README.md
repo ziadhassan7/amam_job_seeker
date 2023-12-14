@@ -22,7 +22,7 @@ Upload user Cv, and fetch data from it.
 ------------------------------------------------------
 
 ## Upload your Cv
-![Upload Cv](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/70bd2acb-c3bb-4188-8b9d-3a06a54023a9)
+![Upload CV](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/17735072-4d69-4f01-ac12-77ed86940b6a)
 
 ## Profile Page
-![Profile Page](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/5e6713d9-6345-466e-9803-348ca3c14c47)
+![Profile](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/168b534d-8130-4063-a115-e9fbcca40ece)
