@@ -1,7 +1,7 @@
 # amam_job_seeker
 
-Web Application with Adaptive Layout.
-Upload user Cv, and fetch data from it.
+* Web Application with Adaptive Layout.
+* Create Account and fetch profile data from your CV.
 
 # UI Showcase 
 
