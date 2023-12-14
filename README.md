@@ -6,19 +6,18 @@ Upload user Cv, and fetch data from it.
 # UI Showcase 
 
 ## Home Page (before user login)
-![Home (before sign-in)](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/0404a611-78bb-445e-8e7e-535e92c6613a)
+![Home Page (before user login)](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/fda4358b-3a63-46e1-bc14-6cd6ccf7da23)
 
 ## Home Page (after user login)
-![Home (after sign-in)](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/9b71989b-eca1-41bc-a6bd-05f4b32c1e1d)
+![Home Page (after user login)](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/520d37ae-d429-4c1b-a411-f083fd32445f)
 
 ------------------------------------------------------
 
 ## Login
-![login](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/0494b3fb-586e-442e-b530-a096d623240d)
-
+![Login](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/fd4736df-e1b9-4a44-a75f-a1a0201cd51d)
 
 ## Register
-![register](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/2c2caaeb-3eb4-4fd8-a7f1-1f0c595a6bb5)
+![Register](https://github.com/ziadhassan7/amam_job_seeker/assets/31738365/b5ab5156-783c-4805-a281-67c6b27a876f)
 
 ------------------------------------------------------
 
