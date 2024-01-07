@@ -1,5 +1,5 @@
-import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view/default_font.dart';
-import 'package:amam_job_seeker_assessment/futures/app_common_widgets/text_view/text_view.dart';
+import 'package:amam_job_seeker_assessment/features/app_common_widgets/text_view/default_font.dart';
+import 'package:amam_job_seeker_assessment/features/app_common_widgets/text_view/text_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
